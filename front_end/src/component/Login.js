@@ -31,11 +31,12 @@ class Login extends Component {
   handleSubmit = event => {
     event.preventDefault();
     console.log("done loging");
+    this.apicall();
   };
 
 apicall() {
 
-    var url = "http://127.0.0.1:8000/acptassetreq"
+    var url = "http://104.248.24.192/api/auth/login";
     var postData = {
         email: this.state.email,
         password: this.state.password
@@ -44,11 +45,11 @@ apicall() {
     let axiosConfig = {
         headers: {
             'Content-Type': 'application/json',
-            "Access-Control-Allow-Origin": "*",
+            "X-Requested-With": "XMLHttpRequest",
         }
     };
 
-    axios.post('http://<host>:<port>/<path>', postData, axiosConfig)
+    axios.post(url, postData, axiosConfig)
         .then((res) => {
             console.log("RESPONSE RECEIVED: ", res);
         })
