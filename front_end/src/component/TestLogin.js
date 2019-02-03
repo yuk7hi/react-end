@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import '../App.css';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn,  } from "mdbreact";
 import axios from "axios";
-import Nav from "./TestNav";
+//import Nav from "./TestNav";
+import Nav from "./Nawb";
 import '../index.css';
 
 import { BrowserRouter, Route, Link, Redirect, withRouter } from 'react-router-dom';
