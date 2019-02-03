@@ -5,7 +5,16 @@ import Button from "./Button";
 import Button2 from "./ButtonPage";
 
 class logouting extends React.Component{
-  
+  render() {
+    this.props.history.push("/login");
+    window.location.reload();
+    // this.forceUpdate();
+    return{};
+  }
+
+  logout = () => {
+    this.props.history.push("/login");
+  }
 }
 
 class FullPageIntroWithFixedTransparentNavbar extends React.Component {
@@ -30,9 +39,9 @@ class FullPageIntroWithFixedTransparentNavbar extends React.Component {
 //     Router.replace({ pathname: '/route-to-refresh' });
 //    }
 
-    logOut(){
+    logOut() {
       this.props.history.push("/logout");
-      console.log("sucssessfully logout");
+      console.log("sucssessfully logged out");
     }; 
 
     render() {   
@@ -57,7 +66,7 @@ class FullPageIntroWithFixedTransparentNavbar extends React.Component {
                         <MDBNavLink to="/button">Profile</MDBNavLink>
                       </MDBNavItem>
                       <MDBNavItem>
-                        <MDBNavLink to="/lout" >Logout</MDBNavLink>
+                        <MDBNavLink to="/lout">Logout</MDBNavLink>
                       </MDBNavItem>
                     </MDBNavbarNav>
                   </MDBCollapse>
@@ -120,4 +129,4 @@ class FullPageIntroWithFixedTransparentNavbar extends React.Component {
     }
 }
 
-export default FullPageIntroWithFixedTransparentNavbar;
+export default withRouter(FullPageIntroWithFixedTransparentNavbar);
