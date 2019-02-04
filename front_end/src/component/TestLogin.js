@@ -32,7 +32,8 @@ class Login extends React.Component {
             redirectToReferrer: false,
             email: "",
             password: "",
-            access_token : "aaaaaaa"
+            access_token : "aaaaaaa",
+            status:0
         };
     }
 
@@ -96,6 +97,8 @@ class Login extends React.Component {
         });
         
     }
+
+   
 
     render() {
         const { from } = this.props.location.state || { from: { pathname: '/' } };
