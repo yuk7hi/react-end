@@ -8,7 +8,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
+.row > div {
+  padding: 1rem;
+  background-color: white;
+  border: 2px solid #fff;
+  color: #fff;
+  text-align: center;
+}
+
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+MDBContainer{
+    background-color: greenyellow; 
 }
