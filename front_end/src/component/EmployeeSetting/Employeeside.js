@@ -4,7 +4,8 @@ from 'mdbreact';
 
 class hamburgerMenuPage extends Component {
 state = {
-  collapseID: ''
+  collapseID: '',
+  hit:""
 }
 
 toggleCollapse = collapseID => () => {

@@ -1,23 +1,30 @@
 import React from 'react';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink,  MDBMask, MDBView } from 'mdbreact';
 import { BrowserRouter as Router,Route,Link,Switch } from 'react-router-dom';
+import axios from "axios";
 
-import Arequest from './Assetrequest/Assetreqside';
-import Employee from './EmployeeSetting/Employeeside';
-import Assetset from './assetsetting/Assetsetside';
-import Export from './Export';
-import Notfi from './Notification';
-import Log from './Logout';
+// import Arequest from './Assetrequest/Assetreqside';
+// import Employee from './EmployeeSetting/Employeeside';
+// import Assetset from './assetsetting/Assetsetside';
+// import Export from './Export';
+// import Notfi from './Notification';
+// import Log from './Logout';
+import ARSidebar from './SidebarComponent/AssetRequestSidebar';
+import EMSidebar from './SidebarComponent/EmployeeSettingSidebar';
+import ASSidebar from './SidebarComponent/AssetSettingSidebar';
+import EXSidebar from './SidebarComponent/ExportSidebar';
+
 
 import Req from './Assetrequest/AssetReqForm';
 
-import Adde from './EmployeeSetting/Add';
-import Updatee from './EmployeeSetting/Update';
-import Deletee from './EmployeeSetting/Delete';
-import Custom from './EmployeeSetting/Custom';
-import Change from './EmployeeSetting/ChangeDep';
-import Alle from './EmployeeSetting/AllRecords';
-import Reqe from './EmployeeSetting/AssetRequest';
+// import Adde from './EmployeeSetting/Add';
+// import Updatee from './EmployeeSetting/Update';
+// import Deletee from './EmployeeSetting/Delete';
+// import Custom from './EmployeeSetting/Custom';
+// import Change from './EmployeeSetting/ChangeDep';
+// import Alle from './EmployeeSetting/AllRecords';
+// import Reqe from './EmployeeSetting/AssetRequest';
+import Mainemp from './EmployeeSetting/Main';
 
 import Own from './assetsetting/OwnAsset';
 import Re from './assetsetting/Restore';
@@ -38,9 +45,13 @@ class FullPageIntroWithFixedNavbar extends React.Component {
     super(props);
     this.state = {
       collapse: false,
-      isWideEnough: false
+      isWideEnough: false,
+      newtoken: 0,
+      status:0,
+      
     };
     this.onClick = this.onClick.bind(this);
+    this.finduser=this.finduser.bind(this);
   }
 
   onClick() {
@@ -49,10 +60,54 @@ class FullPageIntroWithFixedNavbar extends React.Component {
     });
   }
 
-  // const Side = () =>
-  // {
-  //   return
-  // }
+  componentDidMount() {
+    // this.postData(); 
+    // this.axiosConfig();
+    this.setState({
+      newtoken: 'Bearer ' + this.props.token
+  });
+    this.finduser();
+  }
+  
+finduser = () => {
+    // fakeAuthCentralState.authenticate(() => {
+    //     this.setState(() => ({
+    //         redirectToReferrer: true
+    //     }));
+    // });
+    // console.log("hllo zayn");
+    var url = "http://104.248.24.192/api/auth/user";
+    var postData = {
+      ContentType: 'application/json',
+    };
+
+    var axiosConfig = {
+        headers: {
+            'Content-Type': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest',
+            'Authorization': this.state.newtoken
+        }
+    };
+    axios.get(url, postData, axiosConfig)
+        .then((res) => {
+            this.setState({
+                status: res.status
+                
+            });
+            console.log("inide the axios");
+            // this.login();
+            // fakeAuthCentralState.access_token=this.state.access_token;
+            // this.props.history.push("/protected/dashboard");
+            // console.log("RESPONSE RECEIVED: ", res);
+        })
+        .catch((err) => {
+            console.log("aiyo AXIOS ERROR: ", err);
+        })
+    
+}
+
+
+  
 
   render() {
     return (
@@ -114,12 +169,12 @@ class FullPageIntroWithFixedNavbar extends React.Component {
         
         <MDBCol sm="3">
         
-        <Route path="/AssetRequest"   component={Arequest}/>
-        <Route path="/EmployeeSetting"    component={Employee}/>
-        <Route path="/AssetSetting"    component={Assetset}/>
-        <Route path="/Export"    component={Export}/>
-        <Route path="/Notification"    component={Notfi}/>
-        <Route path="/Logout"    component={Log}/>
+        <Route path="/AssetRequest"   component={ARSidebar}/>
+        <Route path="/EmployeeSetting"    component={EMSidebar}/>
+        <Route path="/AssetSetting"    component={ASSidebar}/>
+        <Route path="/Export"    component={EXSidebar}/>
+        {/* <Route path="/Notification"    component={Notfi}/>
+        <Route path="/Logout"    component={Log}/>  */}
         
         </MDBCol>
         
@@ -128,13 +183,15 @@ class FullPageIntroWithFixedNavbar extends React.Component {
         <Route path="/AssetRequest/RequestForm"   component={Req}/>
         
 
-        <Route path="/EmployeeSetting/Add"   component={Adde}/>
+        {/* <Route path="/EmployeeSetting/Add"   component={Adde}/>
         <Route path="/EmployeeSetting/Update"   component={Updatee}/>
         <Route path="/EmployeeSetting/Delete"   component={Deletee}/>
         <Route path="/EmployeeSetting/Custom"   component={Custom}/>
         <Route path="/EmployeeSetting/Change"   component={Change}/>
         <Route path="/EmployeeSetting/All"   component={Alle}/>
-        <Route path="/EmployeeSetting/Req"   component={Reqe}/>
+        <Route path="/EmployeeSetting/Req"   component={Reqe}/> */}
+        <Route path="/EmployeeSetting/Add"   component={Mainemp}/>
+        <Route path="/EmployeeSetting/Update"   component={Mainemp}/>
 
         <Route path="/AssetSetting/ViewOwn"   component={Own}/>
         <Route path="/AssetSetting/Break"   component={Brek}/>
