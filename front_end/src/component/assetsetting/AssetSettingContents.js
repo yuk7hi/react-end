@@ -23,11 +23,7 @@ import All from './assetsettingComponents/All';
 class Sidebar extends Component {
     constructor(props) {
         super(props);
-        //this.handleMouseMove = this.handleMouseMove.bind(this);
-        this.state = {
-             x : "",
-             y : 0
-         };
+        
       }
 
       componentDidMount(){
@@ -67,14 +63,6 @@ class Sidebar extends Component {
     render() { 
         return ( 
             <div>
-            api awadjgoaajdakdlvakdsljaaaaaaaaaaaaaaaffffffffffdjkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkaaaavadvndkavn
-                kadnvavnakdnvkadnvakdvnakvnkavakdva
-                vkdanvkadnvkadvnklavn;;avka;nva;dva;dknvdvnadfeigj;jg
-                avkdna;nvkalnvnognakdvmklna;dkvnkla;ndk;Arequestava;lvnkal;nba;nbavnoigironalkdnv;(aklnvl
-                ;anv;avkalvaa)
-                {console.log("im rendering" + this.props.match.params.id)}
-                {/* <img src={Img} width="1000" height="500" /> */}
-            
             {this.renderSelector(this.props.match.params.id)}
             </div> 
              );
