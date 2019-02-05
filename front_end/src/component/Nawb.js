@@ -1,6 +1,6 @@
 import React from 'react';
 import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink,  MDBMask, MDBView } from 'mdbreact';
-import { BrowserRouter as Router,Route,Link,Switch } from 'react-router-dom';
+import { BrowserRouter as Router,Route,Link,Switch, Redirect } from 'react-router-dom';
 import axios from "axios";
 
 // import Arequest from './Assetrequest/Assetreqside';
@@ -71,7 +71,7 @@ class FullPageIntroWithFixedNavbar extends React.Component {
     this.finduser();
   }
   
-finduser = () => {
+  finduser = () => {
     // fakeAuthCentralState.authenticate(() => {
     //     this.setState(() => ({
     //         redirectToReferrer: true
@@ -105,10 +105,12 @@ finduser = () => {
         .catch((err) => {
             console.log("aiyo AXIOS ERROR: ", err);
         })
-    
-}
+  }
 
 
+  handleLogout = () => {
+    this.props.history.push("/login");
+  }
   
 
   render() {
@@ -146,8 +148,8 @@ finduser = () => {
                   <MDBNavItem>
                     <MDBNavLink to="/Notification">Notification</MDBNavLink>
                   </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="/Logout">Logout</MDBNavLink>
+                  <MDBNavItem onClick={this.handleLogout}>
+                    <MDBNavLink to="">Logout</MDBNavLink>
                   </MDBNavItem>
                 </MDBNavbarNav>
               </MDBCollapse>
@@ -168,47 +170,41 @@ finduser = () => {
       </MDBRow>
 
       <MDBRow >
-        
-        <MDBCol sm="3">
-        
-        <Route path="/AssetRequest"   component={ARSidebar}/>
-        <Route path="/EmployeeSetting"    component={EMSidebar}/>
-        <Route path="/AssetSetting/:id"    component={ASSidebar}/>
-        <Route path="/Export"    component={EXSidebar}/>
-        {/* <Route path="/Notification"    component={Notfi}/>
-        <Route path="/Logout"    component={Log}/>  */}
-        
+        <MDBCol sm="3">        
+          <Route path="/AssetRequest"   component={ARSidebar}/>
+          <Route path="/EmployeeSetting"    component={EMSidebar}/>
+          <Route path="/AssetSetting/:id"    component={ASSidebar}/>
+          <Route path="/Export"    component={EXSidebar}/>
+          {/* <Route path="/Notification"    component={Notfi}/>
+          <Redirect from="/Logout" to="/Login"/> */}
         </MDBCol>
         
         <MDBCol sm="9">
-        <Switch>
-        <Route path="/AssetRequest/RequestForm"   component={Req}/>
-        <Route path="/AssetSetting/:id"    component={ASContent}/>
-        
+          <Switch>
+            <Route path="/AssetRequest/RequestForm"   component={Req}/>
+            <Route path="/AssetSetting/:id"    component={ASContent}/>
+            
+            {/* <Route path="/EmployeeSetting/Add"   component={Adde}/>
+            <Route path="/EmployeeSetting/Update"   component={Updatee}/>
+            <Route path="/EmployeeSetting/Delete"   component={Deletee}/>
+            <Route path="/EmployeeSetting/Custom"   component={Custom}/>
+            <Route path="/EmployeeSetting/Change"   component={Change}/>
+            <Route path="/EmployeeSetting/All"   component={Alle}/>
+            <Route path="/EmployeeSetting/Req"   component={Reqe}/> */}
+            <Route path="/EmployeeSetting/Add"   component={Mainemp}/>
+            <Route path="/EmployeeSetting/Update"   component={Mainemp}/>
 
-        {/* <Route path="/EmployeeSetting/Add"   component={Adde}/>
-        <Route path="/EmployeeSetting/Update"   component={Updatee}/>
-        <Route path="/EmployeeSetting/Delete"   component={Deletee}/>
-        <Route path="/EmployeeSetting/Custom"   component={Custom}/>
-        <Route path="/EmployeeSetting/Change"   component={Change}/>
-        <Route path="/EmployeeSetting/All"   component={Alle}/>
-        <Route path="/EmployeeSetting/Req"   component={Reqe}/> */}
-        <Route path="/EmployeeSetting/Add"   component={Mainemp}/>
-        <Route path="/EmployeeSetting/Update"   component={Mainemp}/>
-
-        {/* <Route path="/AssetSetting/ViewOwn"   component={Own}/>
-        <Route path="/AssetSetting/Break"   component={Brek}/>
-        <Route path="/AssetSetting/Restore"   component={Re}/>
-        <Route path="/AssetSetting/Gate"   component={Gate}/>
-        <Route path="/AssetSetting/Add"   component={Add}/>
-        <Route path="/AssetSetting/Update"   component={Update}/>
-        <Route path="/AssetSetting/Delete"   component={Delete}/>
-        <Route path="/AssetSetting/Findby"   component={Findby}/>
-        <Route path="/AssetSetting/All"   component={All}/> */}
-        </Switch>
+            {/* <Route path="/AssetSetting/ViewOwn"   component={Own}/>
+            <Route path="/AssetSetting/Break"   component={Brek}/>
+            <Route path="/AssetSetting/Restore"   component={Re}/>
+            <Route path="/AssetSetting/Gate"   component={Gate}/>
+            <Route path="/AssetSetting/Add"   component={Add}/>
+            <Route path="/AssetSetting/Update"   component={Update}/>
+            <Route path="/AssetSetting/Delete"   component={Delete}/>
+            <Route path="/AssetSetting/Findby"   component={Findby}/>
+            <Route path="/AssetSetting/All"   component={All}/> */}
+          </Switch>
         </MDBCol>
-        
-       
       </MDBRow>
 
       

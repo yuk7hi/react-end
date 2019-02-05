@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import '../App.css';
 import { MDBContainer, MDBRow, MDBCol, MDBInput, MDBBtn,  } from "mdbreact";
@@ -7,7 +6,7 @@ import axios from "axios";
 import Nav from "./Nawb";
 import '../index.css';
 
-import { BrowserRouter, Route, Link, Redirect, withRouter } from 'react-router-dom';
+import { Route, Link, Redirect, withRouter } from 'react-router-dom';
 
 const fakeAuthCentralState = {
     isAuthenticated: false,
@@ -61,7 +60,7 @@ class Login extends React.Component {
 
     apicall() {
 
-        var url = "http://104.248.24.192/api/auth/login";
+        var url = "http://104.248.24.192:8080/api/auth/login";
         var postData = {
             email: this.state.email,
             password: this.state.password
@@ -94,11 +93,8 @@ class Login extends React.Component {
             this.setState(() => ({
                 redirectToReferrer: true
             }));
-        });
-        
+        }); 
     }
-
-   
 
     render() {
         const { from } = this.props.location.state || { from: { pathname: '/' } };
@@ -140,7 +136,7 @@ class Login extends React.Component {
                             <div className="text-center">
                                 <MDBBtn disabled={!this.validateForm()} type="submit">
                                     Login
-                </MDBBtn>
+                                </MDBBtn>
                             </div>
                         </form>
                     </MDBCol>
@@ -174,47 +170,54 @@ const AuthButton = withRouter(({ history }) => (
 ));
 
 
-
-
 class App extends Component {
     
 
     render() {
         
-        return <div className="App">
-            <BrowserRouter>
-              <div>
-                   { 
-                        fakeAuthCentralState.isAuthenticated === false ?
-                            <Redirect to="/login" />
-                            : <div></div>
-                        
-                    }
-                {/* <AuthButton /> */}
+        return (
+        <div className="App">
+            <div>
+                { 
+                    fakeAuthCentralState.isAuthenticated === false ?
+                        <Redirect to="/login" />
+                        : <div></div>
+                    
+                }
 
-                {/* <Link to="/protected/go">Protected Content go</Link> */}
-                {/* <Link to="/public">Public Content</Link>
-                <Link to="/protected">Protected Content</Link>
-                    <Link to="/protected/dashboard">Protected Content go</Link> */}
+            {/*
+            <AuthButton />
+            <Link to="/protected/go">Protected Content go</Link> 
+            <Link to="/public">Public Content</Link>
+            <Link to="/protected">Protected Content</Link>
+            <Link to="/protected/dashboard">Protected Content go</Link>
+            */}
 
-                <Route path="/protected/dashboard" render={props => <Nav {...props} isAuthed="fgd" token={fakeAuthCentralState.access_token} />} />
-                {/* <Route path="/public" component={Public} /> */}
-                {/* <Route path="/protected/go" component={Nav} /> */}
+            <Route
+                path="/protected/dashboard"
+                render={(props) => (<Nav
+                    {...props} isAuthed="fgd" token={fakeAuthCentralState.access_token}
+                />)}
+            />
 
-                <MDBContainer fluid>
-                  <MDBRow>
-                    <MDBCol size="1"></MDBCol>
-                    <MDBCol size="11">
-                      <Route path="/login" component={withRouter(Login)} />
-                    </MDBCol>
-                    {/* <MDBCol size="2">.col-4</MDBCol> */}
-                  </MDBRow>
-                </MDBContainer>
+            {/*
+            <Route path="/public" component={Public} />
+            <Route path="/protected/go" component={Nav} />
+            */}
 
-                <ProtectedRoute path="/protected" component={Protected} />
-              </div>
-            </BrowserRouter>
-          </div>;
+            <MDBContainer fluid>
+                <MDBRow>
+                <MDBCol size="1"></MDBCol>
+                <MDBCol size="11">
+                    <Route path="/login" component={withRouter(Login)} />
+                </MDBCol>
+                {/* <MDBCol size="2">.col-4</MDBCol> */}
+                </MDBRow>
+            </MDBContainer>
+
+            <ProtectedRoute path="/protected" component={Protected} />
+            </div>
+        </div>);
     }
 }
 
