@@ -9,10 +9,12 @@ import axios from "axios";
 // import Export from './Export';
 // import Notfi from './Notification';
 // import Log from './Logout';
-import ARSidebar from './SidebarComponent/AssetRequestSidebar';
+import ARSidebar from './assetsetting/AssetSettingContents';
 import EMSidebar from './SidebarComponent/EmployeeSettingSidebar';
 import ASSidebar from './SidebarComponent/AssetSettingSidebar';
 import EXSidebar from './SidebarComponent/ExportSidebar';
+
+import ASContent from './assetsetting/AssetSettingContents';
 
 
 import Req from './Assetrequest/AssetReqForm';
@@ -26,15 +28,15 @@ import Req from './Assetrequest/AssetReqForm';
 // import Reqe from './EmployeeSetting/AssetRequest';
 import Mainemp from './EmployeeSetting/Main';
 
-import Own from './assetsetting/OwnAsset';
-import Re from './assetsetting/Restore';
-import Brek from './assetsetting/Brekdown';
-import Gate from './assetsetting/Gatepass';
-import Add from './assetsetting/Add';
-import Update from './assetsetting/Update';
-import Delete from './assetsetting/Delete';
-import Findby from './assetsetting/Findby';
-import All from './assetsetting/All';
+// import Own from './assetsetting/assetsettingComponents/OwnAsset';
+// import Re from './assetsetting/assetsettingComponents/Restore';
+// import Brek from './assetsetting/assetsettingComponents/Brekdown';
+// import Gate from './assetsetting/assetsettingComponents/Gatepass';
+// import Add from './assetsetting/assetsettingComponents/Add';
+// import Update from './assetsetting/assetsettingComponents/Update';
+// import Delete from './assetsetting/assetsettingComponents/Delete';
+// import Findby from './assetsetting/assetsettingComponents/Findby';
+// import All from './assetsetting/assetsettingComponents/All';
 
 
 
@@ -136,7 +138,7 @@ finduser = () => {
                     <MDBNavLink to="/EmployeeSetting">Employee Setting</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
-                    <MDBNavLink to="/AssetSetting">Asset Setting</MDBNavLink>
+                    <MDBNavLink to="/AssetSetting/ViewOwn">Asset Setting</MDBNavLink>
                   </MDBNavItem>
                   <MDBNavItem>
                     <MDBNavLink to="/Export">Export</MDBNavLink>
@@ -171,7 +173,7 @@ finduser = () => {
         
         <Route path="/AssetRequest"   component={ARSidebar}/>
         <Route path="/EmployeeSetting"    component={EMSidebar}/>
-        <Route path="/AssetSetting"    component={ASSidebar}/>
+        <Route path="/AssetSetting/:id"    component={ASSidebar}/>
         <Route path="/Export"    component={EXSidebar}/>
         {/* <Route path="/Notification"    component={Notfi}/>
         <Route path="/Logout"    component={Log}/>  */}
@@ -181,6 +183,7 @@ finduser = () => {
         <MDBCol sm="9">
         <Switch>
         <Route path="/AssetRequest/RequestForm"   component={Req}/>
+        <Route path="/AssetSetting/:id"    component={ASContent}/>
         
 
         {/* <Route path="/EmployeeSetting/Add"   component={Adde}/>
@@ -193,7 +196,7 @@ finduser = () => {
         <Route path="/EmployeeSetting/Add"   component={Mainemp}/>
         <Route path="/EmployeeSetting/Update"   component={Mainemp}/>
 
-        <Route path="/AssetSetting/ViewOwn"   component={Own}/>
+        {/* <Route path="/AssetSetting/ViewOwn"   component={Own}/>
         <Route path="/AssetSetting/Break"   component={Brek}/>
         <Route path="/AssetSetting/Restore"   component={Re}/>
         <Route path="/AssetSetting/Gate"   component={Gate}/>
@@ -201,7 +204,7 @@ finduser = () => {
         <Route path="/AssetSetting/Update"   component={Update}/>
         <Route path="/AssetSetting/Delete"   component={Delete}/>
         <Route path="/AssetSetting/Findby"   component={Findby}/>
-        <Route path="/AssetSetting/All"   component={All}/>
+        <Route path="/AssetSetting/All"   component={All}/> */}
         </Switch>
         </MDBCol>
         
