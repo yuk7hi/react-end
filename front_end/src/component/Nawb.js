@@ -15,28 +15,10 @@ import ASSidebar from './SidebarComponent/AssetSettingSidebar';
 import EXSidebar from './SidebarComponent/ExportSidebar';
 
 import ASContent from './assetsetting/AssetSettingContents';
+import ESContent from './EmployeeSetting/EmployeeSettingcomponent';
 
 
-import Req from './Assetrequest/AssetReqForm';
 
-// import Adde from './EmployeeSetting/Add';
-// import Updatee from './EmployeeSetting/Update';
-// import Deletee from './EmployeeSetting/Delete';
-// import Custom from './EmployeeSetting/Custom';
-// import Change from './EmployeeSetting/ChangeDep';
-// import Alle from './EmployeeSetting/AllRecords';
-// import Reqe from './EmployeeSetting/AssetRequest';
-import Mainemp from './EmployeeSetting/Main';
-
-// import Own from './assetsetting/assetsettingComponents/OwnAsset';
-// import Re from './assetsetting/assetsettingComponents/Restore';
-// import Brek from './assetsetting/assetsettingComponents/Brekdown';
-// import Gate from './assetsetting/assetsettingComponents/Gatepass';
-// import Add from './assetsetting/assetsettingComponents/Add';
-// import Update from './assetsetting/assetsettingComponents/Update';
-// import Delete from './assetsetting/assetsettingComponents/Delete';
-// import Findby from './assetsetting/assetsettingComponents/Findby';
-// import All from './assetsetting/assetsettingComponents/All';
 
 
 
@@ -63,8 +45,6 @@ class FullPageIntroWithFixedNavbar extends React.Component {
   }
 
   componentDidMount() {
-    // this.postData(); 
-    // this.axiosConfig();
     this.setState({
       newtoken: 'Bearer ' + this.props.token
   });
@@ -72,12 +52,6 @@ class FullPageIntroWithFixedNavbar extends React.Component {
   }
   
 finduser = () => {
-    // fakeAuthCentralState.authenticate(() => {
-    //     this.setState(() => ({
-    //         redirectToReferrer: true
-    //     }));
-    // });
-    // console.log("hllo zayn");
     var url = "http://104.248.24.192/api/auth/user";
     var postData = {
       ContentType: 'application/json',
@@ -97,10 +71,6 @@ finduser = () => {
                 
             });
             console.log("inide the axios");
-            // this.login();
-            // fakeAuthCentralState.access_token=this.state.access_token;
-            // this.props.history.push("/protected/dashboard");
-            // console.log("RESPONSE RECEIVED: ", res);
         })
         .catch((err) => {
             console.log("aiyo AXIOS ERROR: ", err);
@@ -172,39 +142,17 @@ finduser = () => {
         <MDBCol sm="3">
         
         <Route path="/AssetRequest"   component={ARSidebar}/>
-        <Route path="/EmployeeSetting"    component={EMSidebar}/>
+        <Route path="/EmployeeSetting/:id"    component={EMSidebar}/>
         <Route path="/AssetSetting/:id"    component={ASSidebar}/>
         <Route path="/Export"    component={EXSidebar}/>
-        {/* <Route path="/Notification"    component={Notfi}/>
-        <Route path="/Logout"    component={Log}/>  */}
         
         </MDBCol>
         
         <MDBCol sm="9">
         <Switch>
-        <Route path="/AssetRequest/RequestForm"   component={Req}/>
         <Route path="/AssetSetting/:id"    component={ASContent}/>
-        
+        <Route path="/EmployeeSetting/:id"   component={ESContent}/>
 
-        {/* <Route path="/EmployeeSetting/Add"   component={Adde}/>
-        <Route path="/EmployeeSetting/Update"   component={Updatee}/>
-        <Route path="/EmployeeSetting/Delete"   component={Deletee}/>
-        <Route path="/EmployeeSetting/Custom"   component={Custom}/>
-        <Route path="/EmployeeSetting/Change"   component={Change}/>
-        <Route path="/EmployeeSetting/All"   component={Alle}/>
-        <Route path="/EmployeeSetting/Req"   component={Reqe}/> */}
-        <Route path="/EmployeeSetting/Add"   component={Mainemp}/>
-        <Route path="/EmployeeSetting/Update"   component={Mainemp}/>
-
-        {/* <Route path="/AssetSetting/ViewOwn"   component={Own}/>
-        <Route path="/AssetSetting/Break"   component={Brek}/>
-        <Route path="/AssetSetting/Restore"   component={Re}/>
-        <Route path="/AssetSetting/Gate"   component={Gate}/>
-        <Route path="/AssetSetting/Add"   component={Add}/>
-        <Route path="/AssetSetting/Update"   component={Update}/>
-        <Route path="/AssetSetting/Delete"   component={Delete}/>
-        <Route path="/AssetSetting/Findby"   component={Findby}/>
-        <Route path="/AssetSetting/All"   component={All}/> */}
         </Switch>
         </MDBCol>
         

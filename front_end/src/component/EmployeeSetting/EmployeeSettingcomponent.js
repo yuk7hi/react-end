@@ -8,15 +8,14 @@ import Arequest from '../Assetrequest/Assetreqside';
 // import Log from './Logout';
 import Img from '../../logo.svg';
 
-import Own from './assetsettingComponents/OwnAsset';
-import Re from './assetsettingComponents/Restore';
-import Brek from './assetsettingComponents/Brekdown';
-import Gate from './assetsettingComponents/Gatepass';
-import Add from './assetsettingComponents/Add';
-import Update from './assetsettingComponents/Update';
-import Delete from './assetsettingComponents/Delete';
-import Findby from './assetsettingComponents/Findby';
-import All from './assetsettingComponents/All';
+import Adde from './employeeSettingComponents/Add';
+import Update from './employeeSettingComponents/Update';
+import Delete from './employeeSettingComponents/Delete';
+import Custom from './employeeSettingComponents/Custom';
+import Change from './employeeSettingComponents/ChangeDep';
+import Alle from './employeeSettingComponents/AllRecords';
+import Reqe from './employeeSettingComponents/AssetRequest';
+import Mainemp from './employeeSettingComponents/Main';
 
 
 
@@ -38,23 +37,23 @@ class Sidebar extends Component {
       renderSelector(e){
         switch(e){
             case "ViewOwn":
-                return <Own/>;
+                return <Adde/>;
             case "Restore":
-                return <Re/>;
-            case "Break":
-                return <Brek/>;
-            case "Gate":
-                return <Gate/>;
-            case "Add":
-                return <Add/>;
-            case "Update":
                 return <Update/>;
-            case "Delete":
+            case "Break":
                 return <Delete/>;
-            case "Findby":
-                return <Findby/>;
-            case "All":
-                return <All/>;
+            // case "Gate":
+            //     return <Gate/>;
+            // case "Add":
+            //     return <Add/>;
+            // case "Update":
+            //     return <Update/>;
+            // case "Delete":
+            //     return <Delete/>;
+            // case "Findby":
+            //     return <Findby/>;
+            // case "All":
+            //     return <All/>;
             // case "Break":
             //     return <img src={Img} width="1000" height="500" />;
 
