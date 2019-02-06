@@ -51,11 +51,6 @@ class Login extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        // Thi line needs to be inside apicall() function
-        // ==== ==== ==== ====
-            // this.props.setAuth(true);
-            // this.props.setToken("test");
-        // ==== ==== ==== ====
         this.apicall();
     }
 
