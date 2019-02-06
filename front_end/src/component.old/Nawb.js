@@ -1,6 +1,6 @@
 import React from 'react';
-import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink,  MDBMask, MDBView } from 'mdbreact';
-import { BrowserRouter as Router,Route,Link,Switch, Redirect } from 'react-router-dom';
+import { MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavbarToggler, MDBCollapse, MDBNavItem, MDBNavLink } from 'mdbreact';
+import { BrowserRouter as Route, Switch } from 'react-router-dom';
 import axios from "axios";
 
 // import Arequest from './Assetrequest/Assetreqside';
@@ -49,11 +49,11 @@ class FullPageIntroWithFixedNavbar extends React.Component {
       collapse: false,
       isWideEnough: false,
       newtoken: 0,
-      status:0,
-      
+      status: 0,
+
     };
     this.onClick = this.onClick.bind(this);
-    this.finduser=this.finduser.bind(this);
+    this.finduser = this.finduser.bind(this);
   }
 
   onClick() {
@@ -67,10 +67,10 @@ class FullPageIntroWithFixedNavbar extends React.Component {
     // this.axiosConfig();
     this.setState({
       newtoken: 'Bearer ' + this.props.token
-  });
+    });
     this.finduser();
   }
-  
+
   finduser = () => {
     // fakeAuthCentralState.authenticate(() => {
     //     this.setState(() => ({
@@ -84,117 +84,114 @@ class FullPageIntroWithFixedNavbar extends React.Component {
     };
 
     var axiosConfig = {
-        headers: {
-            'Content-Type': 'application/json',
-            'X-Requested-With': 'XMLHttpRequest',
-            'Authorization': this.state.newtoken
-        }
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'Authorization': this.state.newtoken
+      }
     };
     axios.get(url, postData, axiosConfig)
-        .then((res) => {
-            this.setState({
-                status: res.status
-                
-            });
-            console.log("inide the axios");
-            // this.login();
-            // fakeAuthCentralState.access_token=this.state.access_token;
-            // this.props.history.push("/protected/dashboard");
-            // console.log("RESPONSE RECEIVED: ", res);
-        })
-        .catch((err) => {
-            console.log("aiyo AXIOS ERROR: ", err);
-        })
+      .then((res) => {
+        this.setState({
+          status: res.status
+
+        });
+        console.log("inide the axios");
+        // this.login();
+        // fakeAuthCentralState.access_token=this.state.access_token;
+        // this.props.history.push("/protected/dashboard");
+        // console.log("RESPONSE RECEIVED: ", res);
+      })
+      .catch((err) => {
+        console.log("aiyo AXIOS ERROR: ", err);
+      })
   }
 
 
   handleLogout = () => {
     this.props.history.push("/login");
   }
-  
+
 
   render() {
     return (
-      <Router>
       <MDBContainer fluid>
-      <MDBRow>
-        
-      </MDBRow>
-      <MDBRow>
-        <MDBCol size="12">
-        
-        <div>
-        <header>
-          
-            <MDBNavbar color="indigo" dark expand="md" fixed="top">
-              <MDBNavbarBrand href="/">
-                <strong>SimCentric</strong>
-              </MDBNavbarBrand>
-              {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
-              <MDBCollapse isOpen={this.state.collapse} navbar>
-                <MDBNavbarNav left>
-                  <MDBNavItem active>
-                    <MDBNavLink to="/AssetRequest">Asset Request</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="/EmployeeSetting">Employee Setting</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="/AssetSetting/ViewOwn">Asset Setting</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="/Export">Export</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem>
-                    <MDBNavLink to="/Notification">Notification</MDBNavLink>
-                  </MDBNavItem>
-                  <MDBNavItem onClick={this.handleLogout}>
-                    <MDBNavLink to="">Logout</MDBNavLink>
-                  </MDBNavItem>
-                </MDBNavbarNav>
-              </MDBCollapse>
-           
-            </MDBNavbar>
-            
-            
-          
-        </header>
-        <main>
-        
-        </main>
-      </div>
+        <MDBRow>
+
+        </MDBRow>
+        <MDBRow>
+          <MDBCol size="12">
+            <div>
+              <header>
+                <MDBNavbar color="indigo" dark expand="md" fixed="top">
+                  <MDBNavbarBrand href="/">
+                    <strong>SimCentric</strong>
+                  </MDBNavbarBrand>
+                  {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
+                  <MDBCollapse isOpen={this.state.collapse} navbar>
+                    <MDBNavbarNav left>
+                      <MDBNavItem active>
+                        <MDBNavLink to="/AssetRequest">Asset Request</MDBNavLink>
+                      </MDBNavItem>
+                      <MDBNavItem>
+                        <MDBNavLink to="/EmployeeSetting">Employee Setting</MDBNavLink>
+                      </MDBNavItem>
+                      <MDBNavItem>
+                        <MDBNavLink to="/AssetSetting/ViewOwn">Asset Setting</MDBNavLink>
+                      </MDBNavItem>
+                      <MDBNavItem>
+                        <MDBNavLink to="/Export">Export</MDBNavLink>
+                      </MDBNavItem>
+                      <MDBNavItem>
+                        <MDBNavLink to="/Notification">Notification</MDBNavLink>
+                      </MDBNavItem>
+                      <MDBNavItem onClick={this.handleLogout}>
+                        <MDBNavLink to="">Logout</MDBNavLink>
+                      </MDBNavItem>
+                    </MDBNavbarNav>
+                  </MDBCollapse>
+
+                </MDBNavbar>
 
 
-        </MDBCol>
-       
-      </MDBRow>
 
-      <MDBRow >
-        <MDBCol sm="3">        
-          <Route path="/AssetRequest"   component={ARSidebar}/>
-          <Route path="/EmployeeSetting"    component={EMSidebar}/>
-          <Route path="/AssetSetting/:id"    component={ASSidebar}/>
-          <Route path="/Export"    component={EXSidebar}/>
-          {/* <Route path="/Notification"    component={Notfi}/>
+              </header>
+              <main>
+
+              </main>
+            </div>
+
+
+          </MDBCol>
+
+        </MDBRow>
+
+        <MDBRow >
+          <MDBCol sm="3">
+            <Route path="/AssetRequest" component={ARSidebar} />
+            <Route path="/EmployeeSetting" component={EMSidebar} />
+            <Route path="/AssetSetting/:id" component={ASSidebar} />
+            <Route path="/Export" component={EXSidebar} />
+            {/* <Route path="/Notification"    component={Notfi}/>
           <Redirect from="/Logout" to="/Login"/> */}
-        </MDBCol>
-        
-        <MDBCol sm="9">
-          <Switch>
-            <Route path="/AssetRequest/RequestForm"   component={Req}/>
-            <Route path="/AssetSetting/:id"    component={ASContent}/>
-            
-            {/* <Route path="/EmployeeSetting/Add"   component={Adde}/>
+          </MDBCol>
+
+          <MDBCol sm="9">
+            <Switch>
+              <Route path="/AssetRequest/RequestForm" component={Req} />
+              <Route path="/AssetSetting/:id" component={ASContent} />
+
+              {/* <Route path="/EmployeeSetting/Add"   component={Adde}/>
             <Route path="/EmployeeSetting/Update"   component={Updatee}/>
             <Route path="/EmployeeSetting/Delete"   component={Deletee}/>
             <Route path="/EmployeeSetting/Custom"   component={Custom}/>
             <Route path="/EmployeeSetting/Change"   component={Change}/>
             <Route path="/EmployeeSetting/All"   component={Alle}/>
             <Route path="/EmployeeSetting/Req"   component={Reqe}/> */}
-            <Route path="/EmployeeSetting/Add"   component={Mainemp}/>
-            <Route path="/EmployeeSetting/Update"   component={Mainemp}/>
+              <Route path="/EmployeeSetting/Add" component={Mainemp} />
+              <Route path="/EmployeeSetting/Update" component={Mainemp} />
 
-            {/* <Route path="/AssetSetting/ViewOwn"   component={Own}/>
+              {/* <Route path="/AssetSetting/ViewOwn"   component={Own}/>
             <Route path="/AssetSetting/Break"   component={Brek}/>
             <Route path="/AssetSetting/Restore"   component={Re}/>
             <Route path="/AssetSetting/Gate"   component={Gate}/>
@@ -203,15 +200,12 @@ class FullPageIntroWithFixedNavbar extends React.Component {
             <Route path="/AssetSetting/Delete"   component={Delete}/>
             <Route path="/AssetSetting/Findby"   component={Findby}/>
             <Route path="/AssetSetting/All"   component={All}/> */}
-          </Switch>
-        </MDBCol>
-      </MDBRow>
+            </Switch>
+          </MDBCol>
+        </MDBRow>
 
-      
-    </MDBContainer>
-    </Router>
 
-      
+      </MDBContainer>
     );
   }
 }

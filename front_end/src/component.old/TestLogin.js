@@ -6,7 +6,7 @@ import axios from "axios";
 import Nav from "./Nawb";
 import '../index.css';
 
-import { Route, Link, Redirect, withRouter } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 
 const fakeAuthCentralState = {
     isAuthenticated: false,
@@ -19,7 +19,7 @@ const fakeAuthCentralState = {
     }
 };
 
-const Public = () => <h3>Public Content</h3>;
+// const Public = () => <h3>Public Content</h3>;
 const Protected = () => <h3>Protected Content</h3>;
 
 class Login extends React.Component {
