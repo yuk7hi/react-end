@@ -1,16 +1,16 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-import AuthRoute from './components/AuthRoute';
-import UnknownPage from './containers/UnknownPage';
+import AuthRoute from './AuthRoute';
+import UnknownPage from '../containers/UnknownPage';
 // Importing containers related to Asset settings
-import AssetBreakdown from './containers/assets/AssetBreakdown';
-import AssetManage from './containers/assets/AssetManage';
-import AssetOwned from './containers/assets/AssetOwned';
-import AssetOwnedEmp from './containers/assets/AssetOwnedEmp';
-import AssetPoolView from './containers/assets/AssetPoolView';
-import AssetRequest from './containers/assets/AssetRequest';
-import AssetRequestHandle from './containers/assets/AssetRequestHandle';
-import AssetTransfer from './containers/assets/AssetTransfer';
+import AssetBreakdown from '../containers/assets/AssetBreakdown';
+import AssetManage from '../containers/assets/AssetManage';
+import AssetOwned from '../containers/assets/AssetOwned';
+import AssetOwnedEmp from '../containers/assets/AssetOwnedEmp';
+import AssetPoolView from '../containers/assets/AssetPoolView';
+import AssetRequest from '../containers/assets/AssetRequest';
+import AssetRequestHandle from '../containers/assets/AssetRequestHandle';
+import AssetTransfer from '../containers/assets/AssetTransfer';
 
 let HomeRoutes = ({ childProps }) => (
     <Switch>

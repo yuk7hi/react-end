@@ -1,6 +1,16 @@
 import React from 'react';
 import Axios from 'axios';
-import { MDBContainer, MDBRow, MDBCol, MDBBtn } from 'mdbreact';
+import {   
+    MDBContainer,
+    MDBRow,
+    MDBCol,
+    MDBCard,
+    MDBCardBody,
+    MDBIcon,
+    MDBCardHeader,
+    MDBBtn,
+    MDBInput 
+} from 'mdbreact';
 
 class Login extends React.Component {
     constructor(props) {
@@ -61,39 +71,54 @@ class Login extends React.Component {
                 <MDBContainer>
                     <MDBRow>
                         <MDBCol md="6">
-                            <form onSubmit={this.handleSubmit}>
-                                <p className="h4 text-center mb-4">Sign in</p>
-                                <label htmlFor="defaultFormLoginEmailEx" className="grey-text">
-                                    Your email
-                                </label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    className="form-control"
-                                    value={this.state.email}
-                                    onChange={this.handleChange}
-                                />
-                                <br />
-                                <label htmlFor="defaultFormLoginPasswordEx" className="grey-text">
-                                    Your password
-                                </label>
-                                <input
-                                    type="password"
-                                    id="password"
-                                    className="form-control"
-                                    value={this.state.password}
-                                    onChange={this.handleChange}
-                                />
-                                <div className="text-center mt-4">
-                                    <MDBBtn 
-                                        color="indigo"
-                                        type="submit"
-                                        disabled={!(this.validateInput())}
-                                        >
-                                            Login
+                            <MDBCard>
+                                <MDBCardBody>
+                                    <MDBCardHeader className="form-header tempting-azure-gradient rounded">
+                                        <h3 className="my-3">
+                                            <MDBIcon icon="lock" /> Login:
+                                        </h3>
+                                    </MDBCardHeader>
+                                    <form onSubmit={this.handleSubmit}>
+                                        <div className="grey-text">
+                                            <MDBInput
+                                                label="Type your email"
+                                                icon="envelope"
+                                                group
+                                                type="email"
+                                                validate
+                                                error="wrong"
+                                                success="right"
+                                                
+                                                id="email"
+                                                value={this.state.email}
+                                                onChange={this.handleChange}
+                                            />
+                                            <MDBInput
+                                                label="Type your password"
+                                                icon="lock"
+                                                group
+                                                type="password"
+                                                validate
+
+                                                id="password"
+                                                value={this.state.password}
+                                                onChange={this.handleChange}
+                                            />
+                                        </div>
+                                        <div className="text-center mt-4">
+                                            <MDBBtn
+                                                color="blue-grey"
+                                                className="mb-3"
+                                                type="submit"
+
+                                                disabled={!(this.validateInput())}
+                                            >
+                                                Login
                                         </MDBBtn>
-                                </div>
-                            </form>
+                                        </div>
+                                    </form>
+                                </MDBCardBody>
+                            </MDBCard>
                         </MDBCol>
                     </MDBRow>
                 </MDBContainer>

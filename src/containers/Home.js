@@ -12,7 +12,7 @@ import {
     MDBView,
     MDBIcon
 } from 'mdbreact';
-import HomeRooutes from '../HomeRoutes';
+import HomeRooutes from '../components/HomeRoutes';
 import AssetSettings from './AssetSettings';
 import EmployeeSettings from './EmployeeSettings';
 import DepartmentSettings from './DepartmentSettings';
@@ -84,10 +84,9 @@ class Home extends React.Component {
                         </MDBCollapse>
                     </MDBNavbar>
 
-                    <MDBView src="http://www.geodomo.cl/img/Achs/4.JPG">
+                    <MDBView src="https://i.imgur.com/MUTuyOK.jpg" alt="background image">
                         {/* https://mdbootstrap.com/img/Photos/Others/img%20(50).jpg */}
                         <MDBMask overlay="light-blue-light" className="flex-center flex-column text-center">
-                            <h1>YELLOO!!!</h1>
                             <HomeRooutes childProps={childProps} />
                         </MDBMask>
                     </MDBView>
