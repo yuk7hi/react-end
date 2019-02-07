@@ -17,8 +17,6 @@ import AssetSettings from './AssetSettings';
 import EmployeeSettings from './EmployeeSettings';
 import DepartmentSettings from './DepartmentSettings';
 
-import Asset from './assets/AssetPoolView';
-
 class Home extends React.Component {
     constructor(props) {
         super(props);
