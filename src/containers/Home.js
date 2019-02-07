@@ -1,5 +1,4 @@
 import React from 'react';
-// import Routes from '../Routes';
 import {
     MDBNavbar,
     MDBNavbarBrand,
@@ -9,18 +8,21 @@ import {
     MDBNavbarToggler,
     MDBNavItem,
     MDBNavLink,
-    MDBDropdown,
-    MDBDropdownMenu,
-    MDBDropdownItem,
-    MDBDropdownToggle,
     MDBMask,
     MDBView,
     MDBIcon
 } from 'mdbreact';
+import HomeRooutes from '../HomeRoutes';
+import AssetSettings from './AssetSettings';
+import EmployeeSettings from './EmployeeSettings';
+import DepartmentSettings from './DepartmentSettings';
+
+import Asset from './assets/AssetPoolView';
 
 class Home extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             collapse: false,
             isWideEnough: false,
@@ -48,62 +50,25 @@ class Home extends React.Component {
     }
 
     render() {
+        const childProps = {
+            isAuth: this.props.isAuth,
+            levelAuth: this.props.levelAuth,
+            accessToken: this.props.accessToken
+        };
+
         return (
             <div className="Home">
                 <header>
-                    <MDBNavbar className="blue-gradient z-depth-1-half" light expand="md" fixed="top">
+                    <MDBNavbar className="aqua-gradient z-depth-1-half" light expand="md" fixed="top">
                         <MDBNavbarBrand href="/">
                             <strong>SimCentric</strong>
                         </MDBNavbarBrand>
                         {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
                         <MDBCollapse isOpen={this.state.collapse} navbar>
                             <MDBNavbarNav left>
-                                <MDBNavItem className="px-md-1">
-                                    <MDBDropdown>
-                                        <MDBDropdownToggle nav caret>
-                                            <div className="d-none d-md-inline">
-                                                <MDBIcon icon="box-open" /> Assets
-                                            </div>
-                                        </MDBDropdownToggle>
-                                        <MDBDropdownMenu className="dropdown-default" right>
-                                            <MDBDropdownItem href="#!">View Asset Pool</MDBDropdownItem>
-                                            <MDBDropdownItem href="#!">View Owned Assets</MDBDropdownItem>
-                                            <MDBDropdownItem href="#!">Request Asset</MDBDropdownItem>
-                                            <MDBDropdownItem href="#!">Asset Requests</MDBDropdownItem>
-                                            <MDBDropdownItem href="#!">Report Breakdown</MDBDropdownItem>
-                                        </MDBDropdownMenu>
-                                    </MDBDropdown>
-                                </MDBNavItem>
-                                <MDBNavItem className="px-md-1">
-                                    <MDBDropdown>
-                                        <MDBDropdownToggle nav caret>
-                                            <div className="d-none d-md-inline">
-                                                <MDBIcon icon="user-tie" /> Employees
-                                            </div>
-                                        </MDBDropdownToggle>
-                                        <MDBDropdownMenu className="dropdown-default" right>
-                                            <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                            <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                            <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                            <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                        </MDBDropdownMenu>
-                                    </MDBDropdown>
-                                </MDBNavItem>
-                                <MDBNavItem className="px-md-1">
-                                    <MDBDropdown>
-                                        <MDBDropdownToggle nav caret>
-                                            <div className="d-none d-md-inline">
-                                                <MDBIcon far icon="building" /> Departments
-                                            </div>
-                                        </MDBDropdownToggle>
-                                        <MDBDropdownMenu className="dropdown-default" right>
-                                            <MDBDropdownItem href="#!">Action</MDBDropdownItem>
-                                            <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                                            <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                            <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                                        </MDBDropdownMenu>
-                                    </MDBDropdown>
-                                </MDBNavItem>
+                                <AssetSettings levelAuth={this.props.levelAuth}/>
+                                <EmployeeSettings levelAuth={this.props.levelAuth} />
+                                <DepartmentSettings levelAuth={this.props.levelAuth} />
                             </MDBNavbarNav>
                             <MDBNavbarNav right>
                                 <MDBNavItem className="px-md-3">
@@ -121,12 +86,11 @@ class Home extends React.Component {
                         </MDBCollapse>
                     </MDBNavbar>
 
-                    <MDBView src="https://mdbootstrap.com/img/Photos/Others/img%20(50).jpg">
-                        <MDBMask overlay="black-light" className="flex-center flex-column text-white text-center">
-                            <h2>This Navbar is fixed</h2>
-                            <h5>It will always stay visible on the top, even when you scroll down</h5>
-                            <br />
-                            <p>Full page intro with background image will be always displayed in full screen mode, regardless of device </p>
+                    <MDBView src="http://www.geodomo.cl/img/Achs/4.JPG">
+                        {/* https://mdbootstrap.com/img/Photos/Others/img%20(50).jpg */}
+                        <MDBMask overlay="light-blue-light" className="flex-center flex-column text-center">
+                            <HomeRooutes  />
+                            <p>{this.props.levelAuth.toString()} {childProps.levelAuth.toString()}</p>
                         </MDBMask>
                     </MDBView>
                 </header>

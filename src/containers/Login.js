@@ -31,6 +31,7 @@ class Login extends React.Component {
         Axios.post(url, postData, axiosConfig)
             .then((res) => {
                 this.props.setToken(res.data.access_token);
+                // console.log(this.props.accessToken);
                 this.props.setAuth(true);
                 console.log("RESPONSE RECEIVED: ", res);
             })
