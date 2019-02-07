@@ -1,9 +1,13 @@
 import React from 'react';
 
-let AssetPoolView = () => (
-    <div className="AssetPoolView">
-        <h2>No Asset Pool here Boi!</h2>
-    </div>
-);
+class AssetPoolView extends React.Component {
+    render() {
+        return (
+            <div className="AssetPoolView">
+                <p>No asset pool here, BOI!</p>
+            </div>
+        )
+    }
+}
 
 export default AssetPoolView;

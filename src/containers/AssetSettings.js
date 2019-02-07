@@ -29,43 +29,43 @@ class AssetSettings extends React.Component {
                                 View Asset Pool
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="#!"
+                                href="/home/assetowned"
                                 hidden={!(this.emplo || this.all)}
                             >
                                 View Owned Assets
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="#!"
+                                href="/home/assetownedemp"
                                 hidden={!(this.admin || this.depth || this.all)}
                             >
                                 View Employee Assets
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="#!"
+                                href="/home/assetrequest"
                                 hidden={!(this.emplo || this.all)}
                             >
                                 Request Asset
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="#!"
+                                href="/home/assetbreakdown"
                                 hidden={!(this.emplo || this.all)}
                             >
                                 Report Breakdown
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="#!"
+                                href="/home/assetrequesthandle"
                                 hidden={!(this.admin || this.depth || this.all)}
                             >
                                 Asset Requests
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="#!"
+                                href="/home/assettransfer"
                                 hidden={!(this.admin || this.all)}
                             >
                                 Transfer Asset
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="#!"
+                                href="/home/assetmanage"
                                 hidden={!(this.admin || this.finan || this.all)}
                             >
                                 Manage Assets
