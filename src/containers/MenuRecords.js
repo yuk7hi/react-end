@@ -25,6 +25,11 @@ class MenuRecords extends React.Component {
                             <MDBDropdownItem
                                 hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
                             >
+                                <MDBNavLink to="/home/record_history">Asset History</MDBNavLink>
+                            </MDBDropdownItem>
+                            <MDBDropdownItem
+                                hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
+                            >
                                 <MDBNavLink to="/home/record_export">Export Records</MDBNavLink>
                             </MDBDropdownItem>
                         </MDBDropdownMenu>

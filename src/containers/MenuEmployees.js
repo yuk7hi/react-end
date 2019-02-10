@@ -13,7 +13,7 @@ class MenuEmployees extends React.Component {
             <div className="MenuEmployees">
                 <MDBNavItem
                     className="px-md-1"
-                    hidden={!(this.admin || this.depth || this.all)}
+                    hidden={!(this.admin || this.depth || this.emplo || this.all)}
                 >
                     <MDBDropdown>
                         <MDBDropdownToggle nav caret>
@@ -25,12 +25,12 @@ class MenuEmployees extends React.Component {
                             <MDBDropdownItem
                                 hidden={!(this.admin || this.depth || this.all)}
                             >
-                                <MDBNavLink to="/home/emp_assets">View Employee Details</MDBNavLink>
+                                <MDBNavLink to="/home/emp_details">Employee Details</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
                                 hidden={!(this.admin || this.depth || this.all)}
                             >
-                                <MDBNavLink to="/home/emp_assets">View Employee Assets</MDBNavLink>
+                                <MDBNavLink to="/home/emp_assets">Employee Assets</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
                                 hidden={!(this.admin || this.all)}
@@ -41,6 +41,11 @@ class MenuEmployees extends React.Component {
                                 hidden={!(this.admin || this.depth || this.all)}
                             >
                                 <MDBNavLink to="/home/emp_requests">Asset Requests</MDBNavLink>
+                            </MDBDropdownItem>
+                            <MDBDropdownItem
+                                hidden={!(this.admin || this.depth || this.emplo || this.all)}
+                            >
+                                <MDBNavLink to="/home/emp_resignation">Resignnation</MDBNavLink>
                             </MDBDropdownItem>
                         </MDBDropdownMenu>
                     </MDBDropdown>

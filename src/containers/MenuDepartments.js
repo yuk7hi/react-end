@@ -23,7 +23,7 @@ class MenuDepartments extends React.Component {
                         </MDBDropdownToggle>
                         <MDBDropdownMenu className="dropdown-default" right>
                             <MDBDropdownItem>
-                                <MDBNavLink to="/home/dept_view">View Departments</MDBNavLink>
+                                <MDBNavLink to="/home/dept_details">Departments Details</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem>
                                 <MDBNavLink to="/home/dept_manage">Manage Departments</MDBNavLink>

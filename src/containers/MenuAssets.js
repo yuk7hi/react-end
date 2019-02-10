@@ -25,12 +25,12 @@ class MenuAssets extends React.Component {
                             <MDBDropdownItem
                                 hidden={!(this.emplo || this.all)}
                             >
-                                <MDBNavLink to="/home/asset_owned">View Owned Assets</MDBNavLink>
+                                <MDBNavLink to="/home/asset_owned">Owned Assets</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
                                 hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
                             >
-                                <MDBNavLink to="/home/asset_pool">View Asset Pool</MDBNavLink>
+                                <MDBNavLink to="/home/asset_pool">Asset Pool</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
                                 hidden={!(this.emplo || this.all)}
@@ -45,12 +45,22 @@ class MenuAssets extends React.Component {
                             <MDBDropdownItem
                                 hidden={!(this.admin || this.all)}
                             >
-                                <MDBNavLink to="/home/asset_transfer">Transfer Asset</MDBNavLink>
+                                <MDBNavLink to="/home/asset_break_manage">Manage Breakdowns</MDBNavLink>
+                            </MDBDropdownItem>
+                            <MDBDropdownItem
+                                hidden={!(this.admin || this.all)}
+                            >
+                                <MDBNavLink to="/home/asset_transfer">Transfer Assets</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
                                 hidden={!(this.finan || this.all)}
                             >
                                 <MDBNavLink to="/home/asset_manage">Manage Assets</MDBNavLink>
+                            </MDBDropdownItem>
+                            <MDBDropdownItem
+                                hidden={!(this.finan || this.all)}
+                            >
+                                <MDBNavLink to="/home/asset_category">Manage Asset Categories</MDBNavLink>
                             </MDBDropdownItem>
                         </MDBDropdownMenu>
                     </MDBDropdown>
