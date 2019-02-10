@@ -1,11 +1,11 @@
-## Intigrating Modules to the System
+# Intigrating Modules to the System
 
 To intigrate modules which you've designed as components, first go to the "containers" directory. Look inside the sub-directories (assets, departments, employees, records) for the module (container component) you're going to implement. If it's not present in those directories please inform the maintainer, (Yukthi or Yasiru) if it's present, please follow the following instructions when intigrating your component to the system.
 
 
 
 
-### Adding a component inside the container (module) component
+## Adding a component inside the container (module) component
 
 
 If you want to intigrate one of your sub-components inside the container compoenent, follow these steps.
@@ -19,13 +19,11 @@ If you want to intigrate one of your sub-components inside the container compoen
 *Create container (module) named directory*
 ```
 /components/**Test**/
-```
-
+```  
 *Insert your sub-component*
 ```
 /components/Test/**TestSub.js**
-```
-
+```  
 *Import and use it inside the container component*
 ```
 "file /containers/records/Test.js"
@@ -38,7 +36,7 @@ import TestSub from '../../components/Test/TestSub';
 
 
 
-### Adding routes inside the container (module) component
+## Adding routes inside the container (module) component
 
 
 If you want to add a route for another component inside your component, follow these steps.
@@ -52,9 +50,8 @@ If you want to add a route for another component inside your component, follow t
 *Import **AuthRoute** component*
 ```
 import AuthRoute from '../../components/AuthRoute';
-```
-
+```  
 *Use the AuthRoute component for routing*
 ```
 <AuthRoute path="/home/test/test_sub" component={TestSub} props={this.props} />
-```
+```  
