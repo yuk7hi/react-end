@@ -1,7 +1,7 @@
 import React from 'react';
-import { MDBNavItem, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from 'mdbreact';
+import { MDBNavItem, MDBNavLink, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from 'mdbreact';
 
-class AssetSettings extends React.Component {
+class MenuAssets extends React.Component {
     all = (this.props.levelAuth === 0);
     admin = (this.props.levelAuth === 1);
     depth = (this.props.levelAuth === 2);
@@ -10,7 +10,7 @@ class AssetSettings extends React.Component {
 
     render() {
         return (
-            <div className="AssetSettings">
+            <div className="MenuAssets">
                 <MDBNavItem
                     className="px-md-1"
                     hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
@@ -23,52 +23,44 @@ class AssetSettings extends React.Component {
                         </MDBDropdownToggle>
                         <MDBDropdownMenu className="dropdown-default" right>
                             <MDBDropdownItem
-                                href="/home/assetpool"
-                                hidden={!(true)}
-                            >
-                                View Asset Pool
-                            </MDBDropdownItem>
-                            <MDBDropdownItem
-                                href="/home/assetowned"
                                 hidden={!(this.emplo || this.all)}
                             >
-                                View Owned Assets
+                                <MDBNavLink to="/home/asset_owned">Owned Assets</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="/home/assetownedemp"
-                                hidden={!(this.admin || this.depth || this.all)}
+                                hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
                             >
-                                View Employee Assets
+                                <MDBNavLink to="/home/asset_pool">Asset Pool</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="/home/assetrequest"
                                 hidden={!(this.emplo || this.all)}
                             >
-                                Request Asset
+                                <MDBNavLink to="/home/asset_request">Request Asset</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="/home/assetbreakdown"
                                 hidden={!(this.emplo || this.all)}
                             >
-                                Report Breakdown
+                                <MDBNavLink to="/home/asset_breakdown">Report Breakdown</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="/home/assetrequesthandle"
-                                hidden={!(this.admin || this.depth || this.all)}
-                            >
-                                Asset Requests
-                            </MDBDropdownItem>
-                            <MDBDropdownItem
-                                href="/home/assettransfer"
                                 hidden={!(this.admin || this.all)}
                             >
-                                Transfer Asset
+                                <MDBNavLink to="/home/asset_break_manage">Manage Breakdowns</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="/home/assetmanage"
-                                hidden={!(this.admin || this.finan || this.all)}
+                                hidden={!(this.admin || this.all)}
                             >
-                                Manage Assets
+                                <MDBNavLink to="/home/asset_transfer">Transfer Assets</MDBNavLink>
+                            </MDBDropdownItem>
+                            <MDBDropdownItem
+                                hidden={!(this.finan || this.all)}
+                            >
+                                <MDBNavLink to="/home/asset_manage">Manage Assets</MDBNavLink>
+                            </MDBDropdownItem>
+                            <MDBDropdownItem
+                                hidden={!(this.finan || this.all)}
+                            >
+                                <MDBNavLink to="/home/asset_category">Manage Asset Categories</MDBNavLink>
                             </MDBDropdownItem>
                         </MDBDropdownMenu>
                     </MDBDropdown>
@@ -78,4 +70,4 @@ class AssetSettings extends React.Component {
     }
 }
 
-export default AssetSettings;
+export default MenuAssets;
