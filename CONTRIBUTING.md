@@ -15,11 +15,11 @@ If you want to intigrate one of your sub-components inside the container compoen
 
 *Create container (module) named directory*
 ```
-/components/**Test**/
+/components/Test/
 ```  
 *Insert your sub-component*
 ```
-/components/Test/**TestSub.js**
+/components/Test/TestSub.js
 ```  
 *Import and use it inside the container component*
 ```

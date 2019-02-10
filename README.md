@@ -7,7 +7,7 @@ Nothing to see here, Go back to work
     - [X] Asset links
     - [X] Employee links
     - [X] Department links
-    - [ ] Record links
+    - [X] Record links
 - [ ] Asset Transfer
 - [ ] Asset Breakdown
 - [ ] Asset Request
