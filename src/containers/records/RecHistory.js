@@ -1,12 +1,13 @@
 import React from 'react';
 
-// AssetManage - add/remove/edit assets
-// For Finance
-class AssetManage extends React.Component {
+// RecHistory - view history of asset transfers, ownership,
+// breakdowns and discarded assets
+// For Admins, Department Heads, Finance, Employees
+class RecHistory extends React.Component {
     render() {
         return (
-            <div className="AssetManage">
-                <p>Add/Remove/Edit assets</p>
+            <div className="RecHistory">
+                <p>View history of assets (transfers, ownership, breakdowns, discarded)</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,
                     routes inside this component view CONTRIBUTING.md */}
@@ -17,4 +18,4 @@ class AssetManage extends React.Component {
     }
 }
 
-export default AssetManage;
+export default RecHistory;

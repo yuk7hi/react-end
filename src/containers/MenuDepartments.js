@@ -1,7 +1,7 @@
 import React from 'react';
-import { MDBNavItem, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from 'mdbreact';
+import { MDBNavItem, MDBNavLink, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from 'mdbreact';
 
-class DepartmentSettings extends React.Component {
+class MenuDepartments extends React.Component {
     all = (this.props.levelAuth === 0);
     admin = (this.props.levelAuth === 1);
     depth = (this.props.levelAuth === 2);
@@ -10,7 +10,7 @@ class DepartmentSettings extends React.Component {
 
     render() {
         return (
-            <div className="DepartmentSettings">
+            <div className="MenuDepartments">
                 <MDBNavItem
                     className="px-md-1"
                     hidden={!(this.admin || this.all)}
@@ -22,10 +22,12 @@ class DepartmentSettings extends React.Component {
                             </div>
                         </MDBDropdownToggle>
                         <MDBDropdownMenu className="dropdown-default" right>
-                            <MDBDropdownItem href="#!">Manage Departments</MDBDropdownItem>
-                            <MDBDropdownItem href="#!">Another Action</MDBDropdownItem>
-                            <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
-                            <MDBDropdownItem href="#!">Something else here</MDBDropdownItem>
+                            <MDBDropdownItem>
+                                <MDBNavLink to="/home/dept_details">Departments Details</MDBNavLink>
+                            </MDBDropdownItem>
+                            <MDBDropdownItem>
+                                <MDBNavLink to="/home/dept_manage">Manage Departments</MDBNavLink>
+                            </MDBDropdownItem>
                         </MDBDropdownMenu>
                     </MDBDropdown>
                 </MDBNavItem>
@@ -34,4 +36,4 @@ class DepartmentSettings extends React.Component {
     }
 }
 
-export default DepartmentSettings;
+export default MenuDepartments;

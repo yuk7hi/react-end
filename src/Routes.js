@@ -11,6 +11,7 @@ let Routes = ({ childProps }) => (
         <Redirect exact path="/" to="/home" />
         <AuthRoute path="/home" component={Home} props={childProps} />
         <UnauthRoute exact path="/login" component={Login} props={childProps} />
+        
         {/* For unmatching URLs, following is the 404 page */}
         <Route component={UnknownPage} />
     </Switch>
