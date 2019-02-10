@@ -2,7 +2,6 @@ import React from 'react';
 import {
     MDBNavbar,
     MDBNavbarBrand,
-    MDBContainer,
     MDBCollapse,
     MDBNavbarNav,
     MDBNavbarToggler,
@@ -13,9 +12,10 @@ import {
     MDBIcon
 } from 'mdbreact';
 import HomeRooutes from '../components/HomeRoutes';
-import AssetSettings from './AssetSettings';
-import EmployeeSettings from './EmployeeSettings';
-import DepartmentSettings from './DepartmentSettings';
+import MenuAssets from './MenuAssets';
+import MenuEmployees from './MenuEmployees';
+import MenuDepartments from './MenuDepartments';
+import MenuRecords from './MenuRecords';
 
 class Home extends React.Component {
     constructor(props) {
@@ -64,9 +64,10 @@ class Home extends React.Component {
                         {!this.state.isWideEnough && <MDBNavbarToggler onClick={this.onClick} />}
                         <MDBCollapse isOpen={this.state.collapse} navbar>
                             <MDBNavbarNav left>
-                                <AssetSettings levelAuth={this.props.levelAuth}/>
-                                <EmployeeSettings levelAuth={this.props.levelAuth} />
-                                <DepartmentSettings levelAuth={this.props.levelAuth} />
+                                <MenuAssets levelAuth={this.props.levelAuth}/>
+                                <MenuEmployees levelAuth={this.props.levelAuth} />
+                                <MenuDepartments levelAuth={this.props.levelAuth} />
+                                <MenuRecords levelAuth={this.props.levelAuth} />
                             </MDBNavbarNav>
                             <MDBNavbarNav right>
                                 <MDBNavItem className="px-md-3">
@@ -83,19 +84,15 @@ class Home extends React.Component {
                             </MDBNavbarNav>
                         </MDBCollapse>
                     </MDBNavbar>
-
+                </header>
+                
+                <main>
                     <MDBView src="https://i.imgur.com/MUTuyOK.jpg" alt="background image">
                         {/* https://mdbootstrap.com/img/Photos/Others/img%20(50).jpg */}
                         <MDBMask overlay="light-blue-light" className="flex-center flex-column text-center">
                             <HomeRooutes childProps={childProps} />
                         </MDBMask>
                     </MDBView>
-                </header>
-                
-                <main>
-                    <MDBContainer className="text-center my-5">
-                        <p align="justify">Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    </MDBContainer>
                 </main>
             </div>
         )
