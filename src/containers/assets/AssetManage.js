@@ -5,7 +5,7 @@ import React from 'react';
 class AssetManage extends React.Component {
     render() {
         return (
-            <div className="AssetManage">
+            <div className="AssetManage flex-center">
                 <p>Add/Remove/Edit assets</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

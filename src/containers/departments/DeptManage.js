@@ -5,7 +5,7 @@ import React from 'react';
 class DeptManage extends React.Component {
     render() {
         return (
-            <div className="DeptManage">
+            <div className="DeptManage flex-center">
                 <p>Add/Remove/Edit departments</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

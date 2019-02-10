@@ -6,7 +6,7 @@ import React from 'react';
 class AssetOwned extends React.Component {
     render() {
         return (
-            <div className="AssetOwned">
+            <div className="AssetOwned flex-center">
                 <p>Assets owned by this employee</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

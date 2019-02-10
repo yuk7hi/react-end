@@ -5,7 +5,7 @@ import React from 'react';
 class EmpResign extends React.Component {
     render() {
         return (
-            <div className="EmpResign">
+            <div className="EmpResign flex-center">
                 <p>Form for employee resignation</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

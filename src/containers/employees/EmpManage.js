@@ -5,7 +5,7 @@ import React from 'react';
 class EmpManage extends React.Component {
     render() {
         return (
-            <div className="EmpManage">
+            <div className="EmpManage flex-center">
                 <p>Add/Remove/Edit employees</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

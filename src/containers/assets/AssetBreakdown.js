@@ -5,7 +5,7 @@ import React from 'react';
 class AssetBreakdown extends React.Component {
     render() {
         return (
-            <div className="AssetBreakdown">
+            <div className="AssetBreakdown flex-center">
                 <p>Report asset breakdowns</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,
