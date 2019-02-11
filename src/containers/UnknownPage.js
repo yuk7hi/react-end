@@ -1,5 +1,4 @@
 import React from 'react';
-import './css/UnknownPage.css';
 
 let UnknownPage = () => (
     <div className="UnknownPage">
