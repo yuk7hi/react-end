@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Switch, Link } from 'react-router-dom';
 import 'mdbreact';
 import AuthRoute from '../../components/AuthRoute';
 import List from '../../components/AssetTransfer/List';
@@ -17,11 +17,13 @@ class AssetTransfer extends React.Component {
                 {/* Feel free to delete these comments once your component
                     is succesfully implemented to the system */}
 
-                   <Link to="/home/asset_transfer/transfers" className="btn black-text rounded-pill">Transfers</Link> &nbsp;
-                   <Link to="/home/asset_transfer/transfer/store" className="btn black-text rounded-pill">New Transfer</Link>
-                   
-                   <AuthRoute exact path="/home/asset_transfer/transfers" component={List} props={this.props} />
-                   <AuthRoute exact path="/home/asset_transfer/transfer/store" component={Store} props={this.props} />
+                <Link to="/home/asset_transfer/transfers" className="btn black-text rounded-pill">Transfers</Link> &nbsp;
+                <Link to="/home/asset_transfer/transfer/store" className="btn black-text rounded-pill">New Transfer</Link>
+
+                <Switch>
+                    <AuthRoute exact path="/home/asset_transfer/transfers" component={List} props={this.props} />
+                    <AuthRoute exact path="/home/asset_transfer/transfer/store" component={Store} props={this.props} />
+                </Switch>
             </div>
         )
     }

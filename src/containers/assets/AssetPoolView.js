@@ -1,14 +1,9 @@
 import React from "react";
 import { Switch } from 'react-router-dom';
-import { MDBContainer, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
+import { MDBPagination, MDBPageItem, MDBNavLink, MDBCol, MDBRow } from 'mdbreact';
 import AuthRoute from '../../components/AuthRoute';
-// import Poool from "../../components/assetsComponents/D2";
-import Publi from "../../components/assetsComponents/poolTables/Computerst";
-import Deskt from "../../components/assetsComponents/poolTables/Desktopt";
- import Lapt from "../../components/assetsComponents/poolTables/Laptopst";
- import Upst from "../../components/assetsComponents/poolTables/Upst";
- import Com from "../../components/assetsComponents/poolTables/Componentst";
- import Other from "../../components/assetsComponents/poolTables/Otherst";
+import PoolView from '../../components/AssetPoolView/PoolView';
+import AssetView from '../../components/AssetPoolView/AssetView';
 
 // AssetPoolView - view all the available assets in the pool
 // For Admins, Department Heads, Finance, Employees
@@ -16,32 +11,37 @@ class AssetPoolView extends React.Component {
 
   render() {
     return (
-      <div>
-        {/* <p>No asset pool here, BOI!</p> */}
-        <MDBContainer className="">
-          <MDBDropdown>
-            <MDBDropdownToggle caret color="primary">
-              MDBDropdown
-            </MDBDropdownToggle>
-            <MDBDropdownMenu basic>
-              <MDBDropdownItem href="/home/asset_pool/computers"> Computers</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/asset_pool/desktops" >Desktops</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/asset_pool/laptops" >Laptops</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/asset_pool/ups" >Ups</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/asset_pool/compo" >Components</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/asset_pool/oth" >Others</MDBDropdownItem>
-            </MDBDropdownMenu>
-          </MDBDropdown>
+      <div className="AssetPoolView">
+        <MDBRow>
+          <MDBCol>
+            <MDBPagination className="d-flex d-sm-inline-flex justify-content-center mb-1 font-weight-bold">
+              <MDBPageItem>
+                <MDBNavLink
+                  className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
+                  to="/home/asset_view/pool"
+                >
+                  Pool
+                </MDBNavLink>
+              </MDBPageItem>
+              <MDBPageItem>
+                <MDBNavLink
+                  className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
+                  to="/home/asset_view/asset"
+                >
+                  Assets
+                </MDBNavLink>
+              </MDBPageItem>
+            </MDBPagination>
+          </MDBCol>
+        </MDBRow>
+        <hr />
+        <div className="AssetManageContent">
           <Switch>
-            {/* <Route path="/computers" component={Publi}/> */}
-            <AuthRoute exact path="/home/asset_pool/computers" component={Publi} props={this.props}/>
-             <AuthRoute exact path="/home/asset_pool/desktops" component={Deskt} props={this.props} />
-            <AuthRoute exact path="/home/asset_pool/laptops" component={Lapt} props={this.props} />
-            <AuthRoute exact path="/home/asset_pool/ups" component={Upst} props={this.props} />
-            <AuthRoute exact path="/home/asset_pool/compo" component={Com} props={this.props} />
-            <AuthRoute exact path="/home/asset_pool/oth" component={Other} props={this.props} /> 
+            <AuthRoute path="/home/asset_view/pool" component={PoolView} props={this.props} />
+            <AuthRoute path="/home/asset_view/view" component={AssetView} props={this.props} />
           </Switch>
-        </MDBContainer>
+        </div>
+
       </div>
     );
   }
