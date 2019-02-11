@@ -73,9 +73,9 @@ class Login extends React.Component {
                         <MDBCol md="6">
                             <MDBCard>
                                 <MDBCardBody>
-                                    <MDBCardHeader className="form-header tempting-azure-gradient rounded">
+                                    <MDBCardHeader className="form-header tempting-azure-gradient rounded flex-center">
                                         <h3 className="my-3">
-                                            <MDBIcon icon="lock" /> Login:
+                                            <MDBIcon icon="lock" /> Login
                                         </h3>
                                     </MDBCardHeader>
                                     <form onSubmit={this.handleSubmit}>
@@ -107,8 +107,8 @@ class Login extends React.Component {
                                         </div>
                                         <div className="text-center mt-4">
                                             <MDBBtn
-                                                color="blue-grey"
-                                                className="mb-3"
+                                                color="elegant"
+                                                className="mb-3 rounded"
                                                 type="submit"
 
                                                 disabled={!(this.validateInput())}
