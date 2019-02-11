@@ -4,9 +4,8 @@ import React from 'react';
 // For Admins (for now)
 class RecExport extends React.Component {
     render() {
-        console.log(this.props.isAuth);
         return (
-            <div className="RecExport">
+            <div className="RecExport flex-center">
                 <p>Export customized records to pdf</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

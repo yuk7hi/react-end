@@ -6,7 +6,7 @@ import React from 'react';
 class RecHistory extends React.Component {
     render() {
         return (
-            <div className="RecHistory">
+            <div className="RecHistory flex-center">
                 <p>View history of assets (transfers, ownership, breakdowns, discarded)</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

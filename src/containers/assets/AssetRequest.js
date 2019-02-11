@@ -2,7 +2,7 @@ import React from 'react';
 class AssetRequest extends React.Component {
     render() {
         return (
-            <div className="AssetRequest">
+            <div className="AssetRequest flex-center">
                 <p>Request new asset</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

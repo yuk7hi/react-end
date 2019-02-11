@@ -6,7 +6,7 @@ import React from 'react';
 class AssetCategory extends React.Component {
     render() {
         return (
-            <div className="AssetCategory">
+            <div className="AssetCategory flex-center">
                 <p>Add/Remove/Edit asset categories</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

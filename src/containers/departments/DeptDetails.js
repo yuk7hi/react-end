@@ -5,7 +5,7 @@ import React from 'react';
 class DeptDetails extends React.Component {
     render() {
         return (
-            <div className="DeptDetails">
+            <div className="DeptDetails flex-center">
                 <p>View department details</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

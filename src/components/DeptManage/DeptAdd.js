@@ -1,13 +1,12 @@
 import React from 'react';
 
-// AssetOwned - view assets assigned to one's self,
-// that is assets assigned to the loggen in employee
-// For Employees
-class AssetOwned extends React.Component {
+// DeptAdd - add departments
+// For Finance
+class DeptAdd extends React.Component {
     render() {
         return (
-            <div className="AssetOwned flex-center">
-                <p>Assets owned by this employee</p>
+            <div className="DeptAdd flex-center">
+                <p>Add departments</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,
                     routes inside this component view CONTRIBUTING.md */}
@@ -18,4 +17,4 @@ class AssetOwned extends React.Component {
     }
 }
 
-export default AssetOwned;
+export default DeptAdd;
