@@ -24,22 +24,22 @@ class AssetPoolView extends React.Component {
               MDBDropdown
             </MDBDropdownToggle>
             <MDBDropdownMenu basic>
-              <MDBDropdownItem href="/home/assetpool/computers"> Computers</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/assetpool/desktops" >Desktops</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/assetpool/laptops" >Laptops</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/assetpool/ups" >Ups</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/assetpool/compo" >Components</MDBDropdownItem>
-              <MDBDropdownItem  href="/home/assetpool/oth" >Others</MDBDropdownItem>
+              <MDBDropdownItem href="/home/asset_pool/computers"> Computers</MDBDropdownItem>
+              <MDBDropdownItem  href="/home/asset_pool/desktops" >Desktops</MDBDropdownItem>
+              <MDBDropdownItem  href="/home/asset_pool/laptops" >Laptops</MDBDropdownItem>
+              <MDBDropdownItem  href="/home/asset_pool/ups" >Ups</MDBDropdownItem>
+              <MDBDropdownItem  href="/home/asset_pool/compo" >Components</MDBDropdownItem>
+              <MDBDropdownItem  href="/home/asset_pool/oth" >Others</MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>
           <Switch>
             {/* <Route path="/computers" component={Publi}/> */}
-            <AuthRoute exact path="/home/assetpool/computers" component={Publi} props={this.props}/>
-             <AuthRoute exact path="/home/assetpool/desktops" component={Deskt} props={this.props} />
-            <AuthRoute exact path="/home/assetpool/laptops" component={Lapt} props={this.props} />
-            <AuthRoute exact path="/home/assetpool/ups" component={Upst} props={this.props} />
-            <AuthRoute exact path="/home/assetpool/compo" component={Com} props={this.props} />
-            <AuthRoute exact path="/home/assetpool/oth" component={Other} props={this.props} /> 
+            <AuthRoute exact path="/home/asset_pool/computers" component={Publi} props={this.props}/>
+             <AuthRoute exact path="/home/asset_pool/desktops" component={Deskt} props={this.props} />
+            <AuthRoute exact path="/home/asset_pool/laptops" component={Lapt} props={this.props} />
+            <AuthRoute exact path="/home/asset_pool/ups" component={Upst} props={this.props} />
+            <AuthRoute exact path="/home/asset_pool/compo" component={Com} props={this.props} />
+            <AuthRoute exact path="/home/asset_pool/oth" component={Other} props={this.props} /> 
           </Switch>
         </MDBContainer>
       </div>
