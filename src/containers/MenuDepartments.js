@@ -12,12 +12,12 @@ class MenuDepartments extends React.Component {
         return (
             <div className="MenuDepartments">
                 <MDBNavItem
-                    className="px-md-1"
+                    className="px-lg-1"
                     hidden={!(this.admin || this.all)}
                 >
                     <MDBDropdown>
                         <MDBDropdownToggle nav caret>
-                            <div className="d-none d-md-inline">
+                            <div className="d-inline-flex d-md-inline">
                                 <MDBIcon far icon="building" /> Departments
                             </div>
                         </MDBDropdownToggle>
