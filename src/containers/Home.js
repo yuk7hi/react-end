@@ -89,7 +89,7 @@ class Home extends React.Component {
                 <main>
                     <MDBView src="https://i.imgur.com/MUTuyOK.jpg" alt="background image">
                         {/* https://mdbootstrap.com/img/Photos/Others/img%20(50).jpg */}
-                        <MDBMask overlay="light-blue-light" className="flex-center flex-column text-center">
+                        <MDBMask overlay="light-blue-light" className="flex-center flex-column ">
                             <HomeRooutes childProps={childProps} />
                         </MDBMask>
                     </MDBView>

@@ -15,28 +15,31 @@ class NotiMsg extends Component {
       rows: [],
       assets: [],
       key : "",
-      User_status : 3
+      dipHead : "kasun",
+      User_id : 0,
+      User_status : 1
     }; // this is where we are connecting to with sockets
     this.setMessage = this.setMessage.bind(this);
+    this.tableDataRender = this.tableDataRender.bind(this);
   }
 
   tableRender(){
     if(this.state.User_status===3){
-      return <th scope="col"> DEPARTMENT HEAD </th>
+      return <th scope="col" className = "text-center"> DEPARTMENT HEAD </th>
+    }
+  }
+
+  tableDataRender(item){
+    if(this.state.User_status===3){
+      return <td  className = "text-center"> {item.head.firstName} {item.head.lastName} </td>
     }
   }
 
   componentDidMount() {
 
-    //axios.defaults.baseURL = this.state.url;
-    // axios.defaults.headers.post['Content-Type']    =    'application/x-www-form-urlencoded';
-     axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-     axios.defaults.headers.common['Authorization'] = 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6IjIwNTM3YWVmMDkxNzYyYzc2ZjJmOTdkNWU1Zjk4YzUyOTc0ZmY2OGY4MjExNDBlMmFmYzUyYTNkM2I1MDdlNTk4YzhiMWU4ZTcxZTQyYjk0In0.eyJhdWQiOiIxMyIsImp0aSI6IjIwNTM3YWVmMDkxNzYyYzc2ZjJmOTdkNWU1Zjk4YzUyOTc0ZmY2OGY4MjExNDBlMmFmYzUyYTNkM2I1MDdlNTk4YzhiMWU4ZTcxZTQyYjk0IiwiaWF0IjoxNTQ5ODAxMzQxLCJuYmYiOjE1NDk4MDEzNDEsImV4cCI6MTU4MTMzNzM0MSwic3ViIjoiNCIsInNjb3BlcyI6W119.JCyv_N4Fw7TgIfzLVUHb5OWrz59DcFxewHTqswV2aJ-s_Ta53MSQlQQ1UVUdUaxm6naN1D73dbOUMg-C4I-AD2yEHAJ8Sq2dCqS4AGR-H1QAbJ4HGDQXdPiRoPUgHHmfjDKPsN7kEzz1NiDdon8xfZNSAVSb-hocMFjw6kw23XqQ0QBUoTX-ZoMYxhm_3aQNJge0QJZ98z-xJEiNoyUqj0eboGAWiXwIKLQAil_zYzHU05mxcKdUDLn8IPfROUNnsdkuJuoHMoYbbx1ymwnzCBKqUGQpv_4m3nMfeK2RZ_ZKgI3VtS5t5wDFHDMBTl0DeqthqntxmlMybs2hrXoUexn_5TWtCS6scKacTu8ZJVB-GHjANFtEN90wppwRzXMhh1rZu2fCa3xJ_fQODmFUgALm4-UamiKlQ-fvnwpuRPhde1PvOHmrKsz6vX25ICU47_CZSXiS7PrNZzzyy0LvOwawKQAeJ2VqiwbnxvIZkeSo_58DbsBZLm5C18ALH9b04aXcsLhsfrSWA-7HNaoIMJrHdIQqrBt1cl4Bt7t9R7Xxzh6MCtsC8vPAZ2OscfhCWQw9z3stuJpPcyfvu9uXKSAeEcf4ZoIMAmdhgUnsZjL5z0aUM3XPW1GarZticUe4iRt8WTfckhOjaiBQoJUz_1afntGwjy67HunGF1CgBVU';
     
-    var url = "http://104.248.24.192:8080/api/auth/showreq";
-    if(this.state.User_status===1){url = "http://104.248.24.192:8080/api/auth/showreq";}
-    if(this.state.User_status===3){url = "http://104.248.24.192:8080/api/auth/showreqforit";}
-    
+    var url = "http://104.248.24.192:8080/api/auth/user";
+
     axios.get(url, {
       notiId: this.state.notiId,
       responseType: this.props.value,
@@ -44,18 +47,41 @@ class NotiMsg extends Component {
       .then(response => {
         // handle success
         this.setState({
-          key: response.id,
+          User_status : response.data.status,
+          User_id : response.data.id
         })
-        console.log(response);
+        if (this.state.User_status===1) { this.setState({ key : 'assetreq'})}
+        if (this.state.User_status===3) { this.setState({ key : 'assetreq_it'})}
+        if(this.state.User_status===1){url = "http://104.248.24.192:8080/api/auth/showreq";}
+        if(this.state.User_status===3){url = "http://104.248.24.192:8080/api/auth/showreqforit";}
+        
+        axios.get(url, {
+          notiId: this.state.notiId,
+          responseType: this.props.value,
+        })
+          .then(response => {
+            // handle success
+            this.setState({
+              key: response.id,
+            })
+            console.log(response);
+          })
+          .catch(function (error) {
+            // handle error
+            console.log(error);
+          });
+          
+
+          // if (this.state.User_status===1) { this.setState({ key : 'assetreq'})}
+          // if (this.state.User_status===3) { this.setState({ key : 'assetreq_it'})}
+        console.log("user" , response);
       })
       .catch(function (error) {
         // handle error
         console.log(error);
       });
-      ;
 
-      if (this.state.User_status===1) { this.setState({ key : 'assetreq'})}
-      if (this.state.User_status===3) { this.setState({ key : 'assetreq_it'})}
+    
   }
 
   // method for emitting a socket.io event
@@ -73,13 +99,25 @@ class NotiMsg extends Component {
 
   setMessage(message) {
     //this.state.assets = [JSON.parse(message)];
-      if (JSON.parse(message).user===1){   //set user id to filter out
+    console.log("return form node", message);
+    if (JSON.parse(message).user===this.state.User_id){   //set user id to filter out
           console.log(JSON.parse(message).user);
-      }
-    this.setState({
-      assets: JSON.parse(message).requests
-      //assets: message.original.requests
-    });
+      
+        this.setState({
+          assets: JSON.parse(message).requests
+          //assets: message.original.requests
+        });
+
+    }
+    if (JSON.parse(message).status===this.state.User_status){   //set user id to filter out
+        console.log(JSON.parse(message).user);
+
+          this.setState({
+          assets: JSON.parse(message).requests
+          //assets: message.original.requests
+          });
+
+    }
     //this.state.message.push(JSON.parse(message).message);
     console.log(JSON.parse(message));
      //console.log(message);
@@ -102,13 +140,13 @@ class NotiMsg extends Component {
         <table className="table">
           <thead className="thead-dark">
             <tr>
-              <th scope="col">DATE</th>
-               <th scope="col">REQUESTED EMPLOYEE</th>
+              <th scope="col" className = "text-center">DATE</th>
+               <th scope="col" className = "text-center">REQUESTED EMPLOYEE</th>
                {/* {this.state.User_status===3 ? <th scope="col"> DEPARTMENT HEAD </th>:<> } */}
               {this.tableRender()}
               {/*<th scope="col">DEPARTMENT HEAD</th> */}
-              <th scope="col">ASSET TYPE </th>
-              <th scope="col">BRAND</th>
+              <th scope="col" className = "text-center">ASSET TYPE </th>
+              <th scope="col" className = "text-center">BRAND</th>
               <th scope="col"></th>
               {/* <th scope="col" /> */}
             </tr>
@@ -116,15 +154,18 @@ class NotiMsg extends Component {
 
           <tbody>
             {console.log(this.state.assets)}
-            {this.state.assets.map(function(item, id) {
+            {this.state.assets.map((item, id) => {
               return (
                 <tr key={id}>
-                  <td>{item.created_at}</td>
-                  <td>
+                  <td className = "text-center">{item.created_at}</td>
+                  <td className = "text-center">
                     {item.user.firstName} {item.user.lastName}
                   </td>
-                  <td>{item.asset.type}</td>
-                  <td>{item.asset.brandName}</td>
+                  {/* <td className = "text-center">kasun</td> */}
+                  {this.tableDataRender.call(this,item)}
+                  {/* <td  className = "text-center"> {item.head.firstName} </td> */}
+                  <td className = "text-center">{item.asset.type}</td>
+                  <td className = "text-center">{item.asset.brandName}</td>
                   <td>
                     <PopUp value={item} />
                   </td>

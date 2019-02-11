@@ -43,7 +43,7 @@ class ModalPage extends React.Component {
               <b> {this.props.value.user.firstName} {this.props.value.user.lastName}</b><br/>
               <b>User ID : {this.props.value.user.id}</b><br/>
               <b>Email : {this.props.value.user.email}</b><br/>
-              <b>Status : {this.props.value.user.status}</b><br/>
+              {/* <b>Status : {this.props.value.user.status}</b><br/> */}
 
               </ModalBody>
               <ModalFooter toggle={() => this.toggle(8)}>
