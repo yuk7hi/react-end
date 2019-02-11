@@ -38,7 +38,7 @@ class AssetPoolView extends React.Component {
         <div className="AssetManageContent">
           <Switch>
             <AuthRoute path="/home/asset_view/pool" component={PoolView} props={this.props} />
-            <AuthRoute path="/home/asset_view/view" component={AssetView} props={this.props} />
+            <AuthRoute path="/home/asset_view/asset" component={AssetView} props={this.props} />
           </Switch>
         </div>
 
