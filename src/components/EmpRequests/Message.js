@@ -1,9 +1,9 @@
 // import packages
 import React, { Component } from "react";
+import axios from "axios";
 import socketIOClient from "socket.io-client";
 //import Message from "./components/Message";
 import PopUp from "./PopUp";
-import axios from "axios";
 
 class NotiMsg extends Component {
   constructor(props) {
