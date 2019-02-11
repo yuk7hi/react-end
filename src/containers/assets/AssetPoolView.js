@@ -1,4 +1,5 @@
 import React from "react";
+import { Switch } from 'react-router-dom';
 import { MDBContainer, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem } from "mdbreact";
 import AuthRoute from '../../components/AuthRoute';
 // import Poool from "../../components/assetsComponents/D2";
@@ -31,7 +32,7 @@ class AssetPoolView extends React.Component {
               <MDBDropdownItem  href="/home/assetpool/oth" >Others</MDBDropdownItem>
             </MDBDropdownMenu>
           </MDBDropdown>
-          <div>
+          <Switch>
             {/* <Route path="/computers" component={Publi}/> */}
             <AuthRoute exact path="/home/assetpool/computers" component={Publi} props={this.props}/>
              <AuthRoute exact path="/home/assetpool/desktops" component={Deskt} props={this.props} />
@@ -39,7 +40,7 @@ class AssetPoolView extends React.Component {
             <AuthRoute exact path="/home/assetpool/ups" component={Upst} props={this.props} />
             <AuthRoute exact path="/home/assetpool/compo" component={Com} props={this.props} />
             <AuthRoute exact path="/home/assetpool/oth" component={Other} props={this.props} /> 
-          </div>
+          </Switch>
         </MDBContainer>
       </div>
     );
