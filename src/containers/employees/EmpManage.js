@@ -20,10 +20,10 @@ class EmpManage extends React.Component {
                     is succesfully implemented to the system */}
                 <MDBRow>
                     <MDBCol>
-                        <MDBPagination className="mb-5 font-weight-bolder">
+                        <MDBPagination className="d-flex d-sm-inline-flex justify-content-center mb-5 font-weight-bold">
                             <MDBPageItem>
                                 <MDBNavLink
-                                    className="rounded-pill z-depth-1 px-md-4 mx-1 mx-md-2 mdb-color-text"
+                                    className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
                                     to="/home/emp_manage/"
                                 >
                                     Create
@@ -31,7 +31,7 @@ class EmpManage extends React.Component {
                             </MDBPageItem>
                             <MDBPageItem>
                                 <MDBNavLink
-                                    className="rounded-pill z-depth-1 px-md-4 mx-1 mx-md-2 mdb-color-text"
+                                    className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
                                     to="/home/emp_manage/remove"
                                 >
                                     Delete
@@ -39,7 +39,7 @@ class EmpManage extends React.Component {
                             </MDBPageItem>
                             <MDBPageItem>
                                 <MDBNavLink
-                                    className="rounded-pill z-depth-1 px-md-4 mx-1 mx-md-2 mdb-color-text"
+                                    className="rounded-pill z-depth-1 px-md-4 mx-2 mdb-color-text"
                                     to="/home/emp_manage/edit"
                                 >
                                     Update
