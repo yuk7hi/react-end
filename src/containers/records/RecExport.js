@@ -1,12 +1,13 @@
 import React from 'react';
 
-// AssetManage - add/remove/edit assets
-// For Finance
-class AssetManage extends React.Component {
+// RecExport - export a customized records to a pdf file
+// For Admins (for now)
+class RecExport extends React.Component {
     render() {
+        console.log(this.props.isAuth);
         return (
-            <div className="AssetManage">
-                <p>Add/Remove/Edit assets</p>
+            <div className="RecExport">
+                <p>Export customized records to pdf</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,
                     routes inside this component view CONTRIBUTING.md */}
@@ -17,4 +18,4 @@ class AssetManage extends React.Component {
     }
 }
 
-export default AssetManage;
+export default RecExport;

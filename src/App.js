@@ -1,6 +1,5 @@
 import React from 'react';
 import Routes from './Routes';
-import './App.css';
 
 class App extends React.Component {
     constructor(props) {
@@ -9,8 +8,8 @@ class App extends React.Component {
         this.state = {
             isAuthenticated: false,
             isAuthenticating: true,
-            accessToken: "fd",
-            levelOfAuthentication: 1
+            accessToken: "",
+            levelOfAuthentication: 0
         };
     }
 

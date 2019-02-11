@@ -1,7 +1,7 @@
 import React from 'react';
-import { MDBNavItem, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from 'mdbreact';
+import { MDBNavItem, MDBNavLink, MDBDropdown, MDBDropdownToggle, MDBDropdownMenu, MDBDropdownItem, MDBIcon } from 'mdbreact';
 
-class EmployeeSettings extends React.Component {
+class MenuEmployees extends React.Component {
     all = (this.props.levelAuth === 0);
     admin = (this.props.levelAuth === 1);
     depth = (this.props.levelAuth === 2);
@@ -10,10 +10,10 @@ class EmployeeSettings extends React.Component {
 
     render() {
         return (
-            <div className="EmployeeSettings">
+            <div className="MenuEmployees">
                 <MDBNavItem
                     className="px-md-1"
-                    hidden={!(this.admin || this.depth || this.all)}
+                    hidden={!(this.admin || this.depth || this.emplo || this.all)}
                 >
                     <MDBDropdown>
                         <MDBDropdownToggle nav caret>
@@ -23,28 +23,29 @@ class EmployeeSettings extends React.Component {
                         </MDBDropdownToggle>
                         <MDBDropdownMenu className="dropdown-default" right>
                             <MDBDropdownItem
-                                href="#!"
                                 hidden={!(this.admin || this.depth || this.all)}
                             >
-                                View Employees
+                                <MDBNavLink to="/home/emp_details">Employee Details</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="#!"
+                                hidden={!(this.admin || this.depth || this.all)}
+                            >
+                                <MDBNavLink to="/home/emp_assets">Employee Assets</MDBNavLink>
+                            </MDBDropdownItem>
+                            <MDBDropdownItem
                                 hidden={!(this.admin || this.all)}
                             >
-                                Manage Employees
+                                <MDBNavLink to="/home/emp_manage">Manage Employees</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="#!"
-                                hidden={!(this.all)}
+                                hidden={!(this.admin || this.depth || this.all)}
                             >
-                                Something else here
+                                <MDBNavLink to="/home/emp_requests">Asset Requests</MDBNavLink>
                             </MDBDropdownItem>
                             <MDBDropdownItem
-                                href="#!"
-                                hidden={!(this.all)}
+                                hidden={!(this.admin || this.depth || this.emplo || this.all)}
                             >
-                                Something else here
+                                <MDBNavLink to="/home/emp_resignation">Resignnation</MDBNavLink>
                             </MDBDropdownItem>
                         </MDBDropdownMenu>
                     </MDBDropdown>
@@ -54,4 +55,4 @@ class EmployeeSettings extends React.Component {
     }
 }
 
-export default EmployeeSettings;
+export default MenuEmployees;

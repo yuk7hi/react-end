@@ -1,20 +1,18 @@
 import React from 'react';
 
-// AssetManage - add/remove/edit assets
-// For Finance
-class AssetManage extends React.Component {
+class Dashboard extends React.Component {
     render() {
         return (
-            <div className="AssetManage">
-                <p>Add/Remove/Edit assets</p>
+            <div className="Dashboard">
+                <h1>Where's the dashboard, Boi???</h1>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,
                     routes inside this component view CONTRIBUTING.md */}
-                {/* Feel free to delete these comments once your component
+                {/* Feel free to delete above comments once your component
                     is succesfully implemented to the system */}
             </div>
         )
     }
 }
 
-export default AssetManage;
+export default Dashboard;
