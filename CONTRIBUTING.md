@@ -1,11 +1,15 @@
-# Intigrating Modules to the System
+# Integrating Modules to the System
 
-To intigrate modules which you've designed as components, first go to the "containers" directory. Look inside the sub-directories (assets, departments, employees, records) for the module (container component) you're going to implement. If it's not present in those directories please inform the maintainer, (Yukthi or Yasiru) if it's present, please follow the following instructions when intigrating your component to the system.
+To integrate modules which you've designed as components, first go to the "containers" directory. Look inside the sub-directories (assets, departments, employees, records) for the module (container component) you're going to implement. If it's not present in those directories please inform the maintainer, (Yukthi or Yasiru) if it's present, please follow the following instructions when integrating your component to the system.  
+*(Before starting your work, remove the class **flex-center** from the "div" tag)*
+```
+<div className="Test flex-center">  --->  <div className="Test">
+```
 
 
 ## Adding a component inside the container (module) component
 
-If you want to intigrate one of your sub-components inside the container compoenent, follow these steps.
+If you want to integrate one of your sub-components inside the container compoenent, follow these steps.
 - Create a directory inside the component directory with the container (module) name
 - Insert/create your sub-components related to the module inside the directory
 - Import those sub-components to your container (module) component  

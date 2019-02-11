@@ -5,7 +5,7 @@ import React from 'react';
 class AssetPoolView extends React.Component {
     render() {
         return (
-            <div className="AssetPoolView">
+            <div className="AssetPoolView flex-center">
                 <p>No asset pool here, BOI!</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

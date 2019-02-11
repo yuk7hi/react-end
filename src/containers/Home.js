@@ -75,7 +75,7 @@ class Home extends React.Component {
                                         <MDBIcon icon="bell" />
                                     </MDBNavLink>
                                 </MDBNavItem>
-                                <MDBNavItem onClick={this.handleLogout}>
+                                <MDBNavItem onClick={this.handleLogout} className="px-lg-1">
                                     <MDBNavLink to="#">
                                         <MDBIcon icon="sign-out-alt" />
                                         <strong> Logout</strong>
@@ -86,10 +86,10 @@ class Home extends React.Component {
                     </MDBNavbar>
                 </header>
                 
-                <main>
+                <main className="pt-5">
                     <MDBView src="https://i.imgur.com/MUTuyOK.jpg" alt="background image">
                         {/* https://mdbootstrap.com/img/Photos/Others/img%20(50).jpg */}
-                        <MDBMask overlay="light-blue-light" className="flex-center flex-column text-center">
+                        <MDBMask overlay="light-blue-light pt-4 px-1 px-xl-5 ">
                             <HomeRooutes childProps={childProps} />
                         </MDBMask>
                     </MDBView>

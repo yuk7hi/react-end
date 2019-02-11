@@ -5,7 +5,7 @@ import React from 'react';
 class AssetTransfer extends React.Component {
     render() {
         return (
-            <div className="AssetTransfer">
+            <div className="AssetTransfer flex-center">
                 <p>Transfer assets among pool and employees</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,

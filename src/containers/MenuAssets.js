@@ -12,12 +12,12 @@ class MenuAssets extends React.Component {
         return (
             <div className="MenuAssets">
                 <MDBNavItem
-                    className="px-md-1"
+                    className="px-lg-1"
                     hidden={!(this.admin || this.depth || this.finan || this.emplo || this.all)}
                 >
                     <MDBDropdown>
                         <MDBDropdownToggle nav caret>
-                            <div className="d-none d-md-inline">
+                            <div className="d-inline-flex d-md-inline">
                                 <MDBIcon icon="box-open" /> Assets
                             </div>
                         </MDBDropdownToggle>

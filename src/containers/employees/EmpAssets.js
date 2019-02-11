@@ -5,7 +5,7 @@ import React from 'react';
 class EmpAssets extends React.Component {
     render() {
         return (
-            <div className="EmpAssets">
+            <div className="EmpAssets flex-center">
                 <p>Employee assets assigned to each</p>
                 {/* Your component code goes here */}
                 {/* To see further instructions on how to add components,
