@@ -1,6 +1,6 @@
 import React from 'react';
 import Axios from 'axios';
-import {   
+import {
     MDBContainer,
     MDBRow,
     MDBCol,
@@ -9,7 +9,7 @@ import {
     MDBIcon,
     MDBCardHeader,
     MDBBtn,
-    MDBInput 
+    MDBInput
 } from 'mdbreact';
 
 class Login extends React.Component {
@@ -44,7 +44,7 @@ class Login extends React.Component {
                 // console.log(this.props.accessToken);
                 this.props.setAuth(true);
                 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-                Axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.access_token;           
+                Axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.access_token;
                 console.log("RESPONSE RECEIVED: ", res);
             })
             .catch((err) => {
@@ -72,8 +72,10 @@ class Login extends React.Component {
             <div className="Login">
                 <MDBContainer>
                     <MDBRow>
-                        <MDBCol md="6">
-                            <MDBCard>
+                        <MDBCol md="4">
+                        </MDBCol>
+                        <MDBCol md="8">
+                            <MDBCard className="float-right">
                                 <MDBCardBody>
                                     <MDBCardHeader className="form-header tempting-azure-gradient rounded flex-center">
                                         <h3 className="my-3">
@@ -90,7 +92,7 @@ class Login extends React.Component {
                                                 validate
                                                 error="wrong"
                                                 success="right"
-                                                
+
                                                 id="email"
                                                 value={this.state.email}
                                                 onChange={this.handleChange}
