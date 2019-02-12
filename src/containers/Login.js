@@ -85,7 +85,7 @@ class Login extends React.Component {
                                         <strong className="teal-text">Sim</strong><span className="">Centric</span>
                                     </h1>
                                     <hr />
-                                    <h1 className="blue-grey-text">
+                                    <h1 className="mdb-color-text">
                                         ASSET TRANSFER SYSTEM
                                     </h1>
                                 </MDBCol>
