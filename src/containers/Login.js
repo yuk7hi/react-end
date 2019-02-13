@@ -44,7 +44,7 @@ class Login extends React.Component {
                 // console.log(this.props.accessToken);
                 this.props.setAuth(true);
                 Axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-                Axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.access_token;           
+                Axios.defaults.headers.common['Authorization'] = 'Bearer ' + res.data.access_token;
                 console.log("RESPONSE RECEIVED: ", res);
             })
             .catch((err) => {
